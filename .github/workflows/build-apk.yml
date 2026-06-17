@@ -42,18 +42,9 @@ jobs:
       - name: Locate Build Outputs
         run: |
           echo "=== APK Files ==="
-          find platforms -name "*.apk" || true
+          find platforms -name "*.apk" 2>&1 | tee find_apk.log || true
           echo "=== AAB Files ==="
-          find platforms -name "*.aab" || true
-
-      - name: Push Build Logs on Failure
-        if: failure()
-        run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "actions@github.com"
-          git add cordova_platform_add.log cordova_build.log || true
-          git commit -m "chore: add build logs on failure [skip ci]" || true
-          git push || true
+          find platforms -name "*.aab" 2>&1 | tee find_aab.log || true
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
@@ -63,5 +54,15 @@ jobs:
             platforms/**/*.apk
             platforms/**/*.aab
           if-no-files-found: error
+
+      - name: Push Build Logs and Output Info
+        if: always()
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add cordova_platform_add.log cordova_build.log find_apk.log find_aab.log || true
+          git commit -m "chore: add build logs and output info [skip ci]" || true
+          git push || true
+
 
 
