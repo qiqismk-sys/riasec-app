@@ -3,39 +3,55 @@ ANDROID_HOME=/usr/local/lib/android/sdk (recommended setting)
 ANDROID_SDK_ROOT=/usr/local/lib/android/sdk (DEPRECATED)
 Using Android SDK: /usr/local/lib/android/sdk
 
-Welcome to Gradle 9.5.1!
+Welcome to Gradle 7.6!
 
 Here are the highlights of this release:
- - Task provenance in reports and failure messages
- - Type-safe accessors for precompiled Kotlin Settings plugins
+ - Added support for Java 19.
+ - Introduced `--rerun` flag for individual task rerun.
+ - Improved dependency block for test suites to be strongly typed.
+ - Added a pluggable system for Java toolchains provisioning.
 
-For more details see https://docs.gradle.org/9.5.1/release-notes.html
+For more details see https://docs.gradle.org/7.6/release-notes.html
 
 Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :wrapper
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_3-1781670745299.json
 
-[Incubating] Problems report is available at: file:///home/runner/work/riasec-app/riasec-app/platforms/android/build/reports/problems/problems-report.html
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.6/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 6s
+1 actionable task: 1 executed
+Subproject Path: CordovaLib
+Subproject Path: app
+Downloading https://services.gradle.org/distributions/gradle-7.6-all.zip
+...............10%................20%................30%................40%...............50%................60%................70%................80%...............90%................100%
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_3-1781670752009.json
 
 FAILURE: Build failed with an exception.
 
 * Where:
-Script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle' line: 131
+Script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle' line: 69
 
 * What went wrong:
-Could not compile script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle'.
-> startup failed:
-  script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle': 131: unable to resolve class XmlParser 
-   @ line 131, column 12.
-         return new XmlParser(false, false).parseText(xml)
-                ^
-  
-  1 error
-
+A problem occurred evaluating script.
+> No installed build tools found. Please install the Android build tools version 33.0.2.
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
 > Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights from a Build Scan (powered by Develocity).
-> Get more help at https://help.gradle.org.
+> Run with --scan to get full insights.
 
-BUILD FAILED in 27s
-Command failed with exit code 1: /usr/share/gradle-9.5.1/bin/gradle -p /home/runner/work/riasec-app/riasec-app/platforms/android wrapper -b /home/runner/work/riasec-app/riasec-app/platforms/android/wrapper.gradle
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.6/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 5s
+Command failed with exit code 1: /home/runner/work/riasec-app/riasec-app/platforms/android/gradlew -b /home/runner/work/riasec-app/riasec-app/platforms/android/build.gradle cdvBuildDebug
