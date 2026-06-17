@@ -33,8 +33,14 @@ jobs:
         with:
           gradle-version: '7.6'
 
+      - name: Install Android Build Tools 33.0.2
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;33.0.2"
+
       - name: Install Cordova
         run: npm install -g cordova
+
 
 
       - name: Install Project Dependencies
