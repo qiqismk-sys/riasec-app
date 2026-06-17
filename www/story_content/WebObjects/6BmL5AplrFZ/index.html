@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademi Karier 2070 - Perencanaan Karir RIASEC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        smkNavy: {
+                            deep: '#070a13',
+                            medium: '#0e1322',
+                            light: '#1a233d'
+                        },
+                        smkBlue: {
+                            light: '#e0f2fe',
+                            DEFAULT: '#38bdf8',
+                            dark: '#0284c7'
+                        },
+                        smkYellow: {
+                            light: '#fef08a',
+                            DEFAULT: '#facc15',
+                            dark: '#eab308'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #05070b;
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #app-container {
+            width: 1280px;
+            height: 720px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center center;
+            /* Latar belakang bernuansa emas-emasan mewah gradasi (Dark Gold Luxury Gradient) */
+            background: linear-gradient(135deg, #070a13 0%, #11131c 45%, #2a200d 80%, #593e0b 100%);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .page-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e1322;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #facc15;
+            border-radius: 10px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+            50% { transform: translateY(-10px) scale(1.05) rotate(3deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+            50% { transform: translateY(10px) scale(0.95) rotate(-3deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.7); }
+        }
+        @keyframes energy-flow {
+            0% { transform: translateY(100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100%); opacity: 0; }
+        }
+        
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .animate-float-reverse {
+            animation: float-reverse 5s ease-in-out infinite;
+        }
+        .animate-glow {
+            animation: pulse-glow 3s infinite;
+        }
+        .energy-beam {
+            position: relative;
+            overflow: hidden;
+        }
+        .energy-beam::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, transparent, #38bdf8, transparent);
+            animation: energy-flow 2s linear infinite;
+        }
+
+        /* EFEK HOVER TERANG & BERCANAYA PUTIH NEON */
+        .hover-bright-white {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-bright-white:hover {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-8px) scale(1.02);
+        }
+        .hover-bright-white:hover i {
+            color: #ffffff !important;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.8) !important;
+        }
+        .hover-bright-white:hover h4 {
+            color: #ffffff !important;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+        }
+        .hover-bright-white:hover p {
+            color: #f1f5f9 !important;
+        }
+
+        /* ATURAN CETAK PRESTISIUS - DIJAMIN SUKSES DI SEMUA SCREEN / IFRAME SANDBOX */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+            body {
+                background-color: #ffffff !important;
+                background-image: none !important;
+                color: #000000 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: visible !important;
+            }
+            /* Sembunyikan elemen global default bodi */
+            body > * {
+                display: none !important;
+            }
+            /* Tampilkan dan sesuaikan kontainer utama */
+            body #app-container {
+                display: block !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                transform: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: transparent !important;
+            }
+            #app-container header, 
+            #app-container footer,
+            #app-container main > div:not(#hal6-sertifikat) {
+                display: none !important;
+            }
+            #app-container main {
+                display: block !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+            }
+            #hal6-sertifikat {
+                display: flex !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: transparent !important;
+                border: none !important;
+            }
+            /* Sembunyikan tombol navigasi sertifikat saat dicetak */
+            #hal6-sertifikat > div:last-child {
+                display: none !important;
+            }
+            /* Sertifikat Utama mengisi penuh halaman A4 Landscape secara anggun (Putih dengan Gradasi Gold) */
+            body.print-cert-mode #printable-certificate {
+                display: flex !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                box-sizing: border-box !important;
+                border: 8px solid #d4af37 !important; /* Bingkai Emas Klasik */
+                background: linear-gradient(to bottom right, #ffffff, #fffdf2, #fbf4db) !important;
+                color: #0f172a !important;
+                padding: 20mm 25mm !important;
+                margin: 0 !important;
+                page-break-inside: avoid !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center">
+
+    <div id="app-container" class="rounded-3xl border border-slate-800/80 flex flex-col justify-between text-slate-100 relative w-full h-full">
+
+        <!-- Latar belakang abstrak bermotif emas -->
+        <div class="absolute top-1/4 left-1/4 w-80 h-80 bg-smkYellow/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+        <header class="w-full px-8 py-3 flex justify-between items-center z-20">
+            <!-- Jam Aktif & Tanggal Real-Time Berdetak -->
+            <div class="flex items-center gap-3 bg-smkNavy-medium/80 border border-slate-800 px-5 py-2 rounded-2xl backdrop-blur-md shadow-lg">
+                <i class="fa-regular fa-clock text-smkYellow animate-pulse"></i>
+                <span id="realtimeClock" class="text-xs font-semibold text-slate-300">00:00:00 - Memuat...</span>
+            </div>
+            
+            <!-- Controller Musik Latar Energetik -->
+            <div class="flex items-center gap-3 bg-smkNavy-medium/80 border border-slate-800 px-5 py-2 rounded-2xl backdrop-blur-md shadow-lg">
+                <button onclick="toggleMute()" id="btnMute" class="text-smkBlue hover:text-smkYellow transition duration-200">
+                    <i class="fa-solid fa-volume-high text-base" id="iconMute"></i>
+                </button>
+                <div class="h-4 w-[1px] bg-slate-800"></div>
+                <button onclick="changeVolume(-0.05)" class="text-slate-400 hover:text-white transition duration-200">
+                    <i class="fa-solid fa-minus text-xs"></i>
+                </button>
+                <span id="volLabel" class="text-xs font-bold min-w-[28px] text-center text-smkYellow">80%</span>
+                <button onclick="changeVolume(0.05)" class="text-slate-400 hover:text-white transition duration-200">
+                    <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-grow flex items-center justify-center px-8 z-10 overflow-hidden">
+            
+            <!-- ================= HALAMAN 1: SELAMAT DATANG (WELCOME SCREEN) ================= -->
+            <div id="hal1-welcome" class="page-transition w-full text-center space-y-5 relative">
+                
+                <!-- Ornamen Interaktif Siswa & Karir -->
+                <div class="absolute -left-10 top-0 w-36 h-80 pointer-events-none flex flex-col justify-around items-center opacity-70">
+                    <div class="animate-float text-5xl bg-smkNavy-light/60 p-3 rounded-full border border-slate-700">🧑‍🎓</div>
+                    <div class="animate-float-reverse text-4xl bg-smkNavy-light/60 p-3 rounded-full border border-slate-700" style="animation-delay: 1.5s">⚙️</div>
+                    <div class="animate-float text-4xl bg-smkNavy-light/60 p-3 rounded-full border border-slate-700" style="animation-delay: 3s">🎨</div>
+                </div>
+
+                <div class="absolute -right-10 top-0 w-36 h-80 pointer-events-none flex flex-col justify-around items-center opacity-70">
+                    <div class="animate-float-reverse text-5xl bg-smkNavy-light/60 p-3 rounded-full border border-slate-700" style="animation-delay: 0.5s">👩‍🎓</div>
+                    <div class="animate-float text-4xl bg-smkNavy-light/60 p-3 rounded-full border border-slate-700" style="animation-delay: 2s">🚜</div>
+                    <div class="animate-float-reverse text-4xl bg-smkNavy-light/60 p-3 rounded-full border border-slate-700" style="animation-delay: 3.5s">💼</div>
+                </div>
+        
+                <!-- Logo Utama di Bagian Atas -->
+              <div class="w-full flex justify-center mt-0 mb-4 px-4">
+    <div class="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl max-w-4xl w-full flex justify-center items-center">
+        <img src="Gambar logo-logo resmi.png" alt="Logo Resmi Instansi" class="h-12 md:h-16 w-auto object-contain max-w-full transform scale-105">
+    </div>
+</div>
+                
+                <!-- Judul Utama & Subtitle -->
+                <div class="space-y-3 max-w-4xl mx-auto">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                        Merencanakan Karir <br>
+                        <span class="bg-gradient-to-r from-smkBlue via-sky-600 to-smkYellow bg-clip-text text-transparent">Melalui Model RIASEC</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-light">
+                        Temukan tipe kepribadian kerja paling cocok dengan potensimu secara asyik, interaktif, dan tidak membosankan!
+                    </p>
+                </div>
+
+                <!-- Tombol Utama untuk masuk ke Login Form -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="bukaFormLogin()" class="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-smkYellow to-amber-500 text-smkNavy-deep font-black text-xl rounded-2xl hover:scale-105 active:scale-[0.98] transition duration-200 shadow-xl shadow-smkYellow/20 flex items-center justify-center gap-3">
+                        MULAI SEKARANG <i class="fa-solid fa-circle-play animate-float text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Menu Tombol Pelengkap Kuning-Kuningan / Keputih-Putihan -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto pt-4 relative z-20">
+                    <!-- Tombol 1: Petunjuk -->
+                    <button onclick="bukaModal('modalPetunjuk')" class="group flex items-center justify-between p-4 bg-gradient-to-r from-amber-50 to-amber-100/95 hover:from-amber-100 hover:to-amber-200 border-2 border-smkYellow hover:border-amber-400 rounded-2xl transition duration-300 text-left shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 bg-smkYellow text-smkNavy-deep rounded-xl flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+                                <i class="fa-solid fa-map-signs text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-amber-800 font-bold uppercase tracking-wider">Langkah Belajar</p>
+                                <h4 class="text-base font-black text-slate-800">Petunjuk Penggunaan</h4>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-amber-700 group-hover:translate-x-1 transition"></i>
+                    </button>
+
+                    <!-- Tombol 2: Referensi -->
+                    <button onclick="bukaModal('modalReferensi')" class="group flex items-center justify-between p-4 bg-gradient-to-r from-amber-50 to-amber-100/95 hover:from-amber-100 hover:to-amber-200 border-2 border-smkYellow hover:border-amber-400 rounded-2xl transition duration-300 text-left shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 bg-smkYellow text-smkNavy-deep rounded-xl flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+                                <i class="fa-solid fa-book text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-amber-800 font-bold uppercase tracking-wider">Bahan & Sumber</p>
+                                <h4 class="text-base font-black text-slate-800">Referensi & Aset</h4>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-amber-700 group-hover:translate-x-1 transition"></i>
+                    </button>
+
+                    <!-- Tombol 3: Profil -->
+                    <button onclick="bukaModal('modalProfil')" class="group flex items-center justify-between p-4 bg-gradient-to-br from-amber-50 to-amber-100/95 hover:from-amber-100 hover:to-amber-200 border-2 border-smkYellow hover:border-amber-400 rounded-2xl transition duration-300 text-left shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 bg-smkYellow text-smkNavy-deep rounded-xl flex items-center justify-center shadow-inner group-hover:scale-110 transition">
+                                <i class="fa-solid fa-user-gear text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-amber-800 font-bold uppercase tracking-wider">Developer</p>
+                                <h4 class="text-base font-black text-slate-800">Profil Pengembang</h4>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-amber-700 group-hover:translate-x-1 transition"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= HALAMAN 2: FORM LOGIN / INPUT DATA ================= -->
+            <div id="hal1-login" class="page-transition hidden w-full max-w-xl bg-smkNavy-medium border-2 border-slate-700/80 rounded-[2.5rem] p-10 shadow-2xl relative overflow-hidden">
+                
+                <!-- Ornamen Robot, AI, Lock, Android, & Game di Halaman Login -->
+                <div class="absolute -top-10 -left-10 w-28 h-28 bg-smkBlue/10 rounded-full flex items-center justify-center text-4xl opacity-50 animate-float">
+                    🤖
+                </div>
+                <div class="absolute bottom-5 right-5 w-20 h-20 bg-smkYellow/10 rounded-full flex items-center justify-center text-3xl opacity-50 animate-float-reverse">
+                    🎮
+                </div>
+                <div class="absolute top-1/2 right-4 text-2xl opacity-40 animate-pulse">
+                    🔐
+                </div>
+                <div class="absolute bottom-1/3 left-4 text-2xl opacity-40 animate-bounce">
+                    🧠
+                </div>
+
+                <button onclick="kembaliDariLogin()" class="absolute top-6 left-6 text-slate-400 hover:text-white transition duration-200 text-base flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left-long"></i> Kembali ke Awal
+                </button>
+				
+				<div class="w-full flex justify-center mt-5 mb-4 px-4">
+    <div class="bg-white/90 backdrop-blur-sm py-1 px-4 rounded-full border border-white/50 shadow-[0_0_15px_rgba(255,255,255,0.4)] max-w-md w-full flex justify-center items-center overflow-hidden">
+        <img src="Gambar logo-logo resmi.png" alt="Logo Resmi Instansi" class="h-11 md:h-14 w-auto object-contain max-w-full transform scale-105">
+    </div>
+</div>
+
+<div class="text-center pt-2 pb-2">
+    <h3 class="text-lg md:text-xl font-black text-white flex items-center justify-center gap-2">
+        <i class="fa-solid fa-user-shield text-smkBlue"></i> Siapkan Identitasmu
+    </h3>
+    <p class="text-xs text-slate-400 mt-1">Data ini akan digunakan otomatis pada sesi analisis Anda</p>
+</div>
+
+                <form id="loginForm" onsubmit="prosesLogin(event)" class="space-y-6 mt-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5" for="username">
+                            <i class="fa-solid fa-signature text-smkYellow"></i> Nama Lengkap Siswa
+                        </label>
+                        <!-- PENTING: Placeholders dalam Huruf KAPITAL, transparan tipis-tipis -->
+                        <input type="text" id="username" required placeholder="CONTOH: MUHAMMAD BUDI UTOMO" class="w-full px-6 py-5 bg-smkNavy-deep border border-slate-800 text-white rounded-2xl text-lg focus:outline-none focus:border-smkBlue focus:ring-4 focus:ring-smkBlue/10 transition placeholder-white/20">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5" for="asal_sekolah">
+                            <i class="fa-solid fa-school text-smkBlue"></i> Program Keahlian (Jurusan)
+                        </label>
+                        <!-- PENTING: Placeholders dalam Huruf KAPITAL, transparan tipis-tipis -->
+                        <input type="text" id="asal_sekolah" required placeholder="CONTOH: TEKNIK ALAT BERAT / TEKNIK KENDARAAN RINGAN" class="w-full px-6 py-5 bg-smkNavy-deep border border-slate-800 text-white rounded-2xl text-lg focus:outline-none focus:border-smkBlue focus:ring-4 focus:ring-smkBlue/10 transition placeholder-white/20">
+                    </div>
+                    
+                    <button type="submit" class="w-full py-5 mt-2 bg-gradient-to-r from-smkBlue to-smkBlue-dark hover:from-smkBlue-dark hover:to-smkBlue text-white font-extrabold rounded-2xl shadow-lg shadow-smkBlue/20 transform hover:scale-[1.01] active:scale-95 transition duration-200 flex items-center justify-center gap-2 text-lg">
+                        MASUK SEKARANG <i class="fa-solid fa-key"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- ================= HALAMAN 3: MENU UTAMA (DASHBOARD DENGAN HOVER BERCAHAYA TERANG & 5 MENU SEJAJAR) ================= -->
+            <div id="hal2-menu" class="page-transition hidden w-full space-y-6 relative">
+                
+                <!-- Ornamen Buku, Pensil, Penggaris, dan Alat Belajar Praktik di Dashboard Menu -->
+                <div class="absolute -right-10 -top-12 w-44 h-24 pointer-events-none flex items-center gap-3 opacity-60 bg-smkNavy-light/40 px-4 py-2 rounded-2xl border border-slate-800 animate-float">
+                    <span class="text-4xl">📚</span>
+                    <div class="text-left leading-tight">
+                        <span class="text-[10px] text-slate-400 uppercase font-black tracking-widest block">BK Desk</span>
+                        <span class="text-xs font-bold text-smkYellow">Alat Belajar BK</span>
+                    </div>
+                    <span class="text-3xl">✏️</span>
+                </div>
+
+                <div class="absolute -left-10 -bottom-10 w-28 h-28 pointer-events-none opacity-40 animate-float-reverse flex flex-col items-center">
+                    <span class="text-5xl">🔬</span>
+                    <span class="text-xs font-black text-slate-500 mt-1">LOGIKA</span>
+                </div>
+
+                <div class="bg-gradient-to-r from-smkNavy-light to-smkNavy-medium border border-slate-800 text-white p-6 rounded-[2rem] shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-smkBlue/5 rounded-full blur-xl"></div>
+
+                    <div class="space-y-1 text-center md:text-left z-10">
+                        <span class="px-4 py-1.5 bg-smkBlue/10 border border-smkBlue/20 text-smkBlue text-xs font-bold rounded-full uppercase tracking-widest flex items-center justify-center md:justify-start gap-1.5">
+                            <i class="fa-solid fa-user-graduate"></i> SMK Career Hub
+                        </span>
+                        <h2 class="text-3xl font-black mt-2">Halo, Sobat <span id="displayNama" class="text-smkYellow font-black">Siswa</span>! 👋</h2>
+                        <p class="text-sm text-slate-300 flex items-center justify-center md:justify-start gap-1.5" id="displayAsal">
+                            <i class="fa-solid fa-school-flag text-slate-400"></i> Program Keahlian: -
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 z-10">
+                        <button onclick="logOut()" class="flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 px-6 py-3.5 rounded-xl border border-red-500/20 text-red-400 transition-all text-sm font-black">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> KELUAR SESI
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GRID UTAMA MENU 5 KOLOM SEJAJAR (DIUPGRADE LEBIH BESAR SESUAI SPESIFIKASI GURU BK) -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 px-1">
+                    <!-- Menu 1: CP & TP -->
+                    <button onclick="pindahHalaman('hal7-cptp')" class="hover-bright-white group text-left p-5 bg-smkNavy-medium rounded-[1.5rem] border border-slate-800 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                        <div class="w-14 h-14 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow-lg mb-4 group-hover:rotate-12 transition">
+                            <i class="fa-solid fa-crosshairs text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-sm md:text-base text-white flex items-center gap-1.5">CP & TP <i class="fa-solid fa-circle-chevron-right text-[11px] opacity-0 group-hover:opacity-100 transition"></i></h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Capaian & Tujuan Bimbingan Karir.</p>
+                        </div>
+                    </button>
+
+                    <!-- Menu 2: MATERI -->
+                    <button onclick="pindahHalaman('hal3-materi')" class="hover-bright-white group text-left p-5 bg-smkNavy-medium rounded-[1.5rem] border border-slate-800 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                        <div class="w-14 h-14 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow-lg mb-4 group-hover:rotate-12 transition">
+                            <i class="fa-solid fa-book-open text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-sm md:text-base text-white flex items-center gap-1.5">MATERI <i class="fa-solid fa-circle-chevron-right text-[11px] opacity-0 group-hover:opacity-100 transition"></i></h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Eksplorasi modul 6 kepribadian kerja.</p>
+                        </div>
+                    </button>
+
+                    <!-- Menu 3: EVALUASI -->
+                    <button onclick="pindahHalaman('hal4-evaluasi')" class="hover-bright-white group text-left p-5 bg-smkNavy-medium rounded-[1.5rem] border border-slate-800 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                        <div class="w-14 h-14 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow-lg mb-4 group-hover:rotate-12 transition">
+                            <i class="fa-solid fa-pen-to-square text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-sm md:text-base text-white flex items-center gap-1.5">EVALUASI <i class="fa-solid fa-circle-chevron-right text-[11px] opacity-0 group-hover:opacity-100 transition"></i></h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Tes evaluasi pemahaman teori karir.</p>
+                        </div>
+                    </button>
+
+                    <!-- Menu 4: PERMAINAN -->
+                    <button onclick="pindahHalaman('hal5-permainan')" class="hover-bright-white group text-left p-5 bg-smkNavy-medium rounded-[1.5rem] border border-slate-800 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                        <div class="w-14 h-14 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow-lg mb-4 group-hover:rotate-12 transition animate-pulse">
+                            <i class="fa-solid fa-gamepad text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-black uppercase">GAME</span>
+                            <h4 class="font-extrabold text-sm md:text-base text-white flex items-center gap-1.5 mt-1">PERMAINAN <i class="fa-solid fa-circle-chevron-right text-[11px] opacity-0 group-hover:opacity-100 transition"></i></h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Main simulasi Akademi Karier 2070.</p>
+                        </div>
+                    </button>
+
+                    <!-- Menu 5: CETAK SERTIFIKAT -->
+                    <button id="btn-menu-sertifikat" onclick="bukaSertifikatHalaman()" class="hover-bright-white group text-left p-5 bg-smkNavy-medium rounded-[1.5rem] border border-slate-800 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                        <div class="w-14 h-14 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow-lg mb-4">
+                            <i class="fa-solid fa-award text-2xl text-emerald-400 animate-pulse" id="cert-btn-icon"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-sm md:text-base text-white flex items-center gap-1.5">SERTIFIKAT <i class="fa-solid fa-unlock text-[10px] text-emerald-400" id="cert-lock-icon"></i></h4>
+                            <div id="text-menu-sertifikat" class="mt-2 text-[10px] text-emerald-400 leading-none">
+                                <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 font-extrabold rounded text-[9px] animate-pulse">SIAP UNDUH ✨</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= HALAMAN 4: CAPAIAN & TUJUAN PEMBELAJARAN (CP-TP) ================= -->
+            <div id="hal7-cptp" class="page-transition hidden w-[1120px] h-[520px] bg-[#fdfbf7] text-slate-900 rounded-[2.5rem] border-2 border-amber-200 shadow-2xl p-8 flex flex-col justify-between overflow-hidden">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow animate-pulse">
+                                <i class="fa-solid fa-bullseye text-2xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-normal text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-graduation-cap text-amber-500"></i> Capaian & Tujuan Pembelajaran
+                                </h2>
+                                <p class="text-sm text-slate-500">Model RIASEC & Pengembangan Potensi Diri</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-y-auto max-h-[300px] pr-2">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                            <div class="p-6 bg-white/60 border border-slate-200 rounded-2xl space-y-3 shadow-inner">
+                                <h3 class="text-xl font-normal text-amber-600 uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-award"></i> Capaian Pembelajaran
+                                </h3>
+                                <p class="text-lg font-normal text-slate-700 leading-relaxed">
+                                    Peserta didik mampu mengenali potensi diri melalui model RIASEC, memahami keterkaitannya dengan bidang keahlian produktif, dan merencanakan karier yang sesuai dengan minat, kemampuan, serta peluang kerja yang tersedia.
+                                </p>
+                            </div>
+
+                            <div class="p-6 bg-white/60 border border-slate-200 rounded-2xl space-y-3 shadow-inner">
+                                <h3 class="text-xl font-normal text-sky-600 uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-list-check"></i> Tujuan Pembelajaran
+                                </h3>
+                                <p class="text-base font-normal text-slate-500 leading-relaxed">
+                                    Setelah mengikuti bimbingan klasikal, peserta didik mampu:
+                                </p>
+                                <ul class="space-y-3 text-lg font-normal text-slate-700 pl-1">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-sm font-normal flex-shrink-0">1</span>
+                                        <span>Mengidentifikasi potensi diri berdasarkan model RIASEC.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-sm font-normal flex-shrink-0">2</span>
+                                        <span>Menganalisis kesesuaian potensi diri dengan bidang program keahlian di SMKN 1 Binuang.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-sm font-normal flex-shrink-0">3</span>
+                                        <span>Merencanakan karier sesuai minat, kemampuan, dan peluang kerja.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="pindahHalaman('hal2-menu')" class="mt-4 flex items-center justify-center gap-2 px-10 py-4 bg-smkYellow hover:bg-amber-400 text-smkNavy-deep font-bold rounded-2xl hover:scale-105 transform transition duration-200 active:scale-95 self-start border-2 border-amber-300 text-base shadow-md">
+                    <i class="fa-solid fa-house-user"></i> Kembali ke Menu Utama
+                </button>
+            </div>
+
+            <!-- ================= HALAMAN 5: MODUL MATERI UTAMA ================= -->
+            <div id="hal3-materi" class="page-transition hidden w-[1120px] h-[520px] bg-[#fdfbf7] text-slate-900 rounded-[2.5rem] border-2 border-amber-200 shadow-2xl p-8 flex flex-col justify-between overflow-hidden">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-gradient-to-br from-white to-smkYellow border-2 border-smkYellow rounded-xl flex items-center justify-center text-smkNavy-deep shadow">
+                                <i class="fa-solid fa-book-open text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-normal text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-compass text-amber-500"></i> Modul Bimbingan Karir
+                                </h2>
+                                <p class="text-sm text-slate-500">Materi Terstruktur Perencanaan Masa Depan Karir Siswa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
+                        <button onclick="switchTabMateri('tab-potensi')" id="btn-tab-potensi" class="tab-btn-materi py-3 rounded-xl text-sm font-bold transition duration-200 bg-smkYellow text-smkNavy-deep flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-id-card"></i> A. Potensi Diri
+                        </button>
+                        <button onclick="switchTabMateri('tab-riasec')" id="btn-tab-riasec" class="tab-btn-materi py-3 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-800 transition duration-200 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-cubes"></i> B. Model RIASEC
+                        </button>
+                        <button onclick="switchTabMateri('tab-heavy')" id="btn-tab-heavy" class="tab-btn-materi py-3 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-800 transition duration-200 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-gears"></i> C. Program Keahlian
+                        </button>
+                        <button onclick="switchTabMateri('tab-plan')" id="btn-tab-plan" class="tab-btn-materi py-3 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-800 transition duration-200 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-map font-bold"></i> D. Rencana Karir
+                        </button>
+                    </div>
+
+                    <div class="bg-white/60 border border-slate-200 rounded-2xl p-5 min-h-[220px] max-h-[220px] overflow-y-auto">
+                        
+                        <!-- Tab A: Mengenal Potensi Diri -->
+                        <div id="tab-potensi" class="tab-content-materi space-y-4 text-base font-normal text-slate-800">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Pokok Bahasan BK</span>
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-id-card text-amber-500"></i> Mengenal Potensi Diri
+                                </h3>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm leading-relaxed">
+                                <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-sm space-y-2">
+                                    <p class="font-bold text-sky-600 flex items-center gap-1"><i class="fa-solid fa-star"></i> Apa itu Potensi Diri?</p>
+                                    <p class="text-slate-700">
+                                        <strong>Potensi diri</strong> merupakan seluruh kekuatan, kesanggupan, kecerdasan, dan bakat terpendam yang dimiliki oleh seseorang. Potensi ini dapat dikembangkan secara maksimal menjadi suatu keahlian and prestasi nyata apabila diasah dengan tekun, terencana, dan terarah melalui media yang tepat.
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-sm space-y-2">
+                                    <p class="font-bold text-amber-600 flex items-center gap-1"><i class="fa-solid fa-lightbulb"></i> Cara Mengidentifikasi Potensi:</p>
+                                    <ul class="space-y-1.5 text-slate-700">
+                                        <li><i class="fa-solid fa-circle-check text-sky-500 mr-1"></i> Melakukan refleksi diri tentang hal yang disukai.</li>
+                                        <li><i class="fa-solid fa-circle-check text-sky-500 mr-1"></i> Mencoba berbagai jenis kegiatan praktik kejuruan sekolah.</li>
+                                        <li><i class="fa-solid fa-circle-check text-sky-500 mr-1"></i> Bertanya dan berdiskusi dengan Guru Bimbingan Konseling (BK).</li>
+                                        <li><i class="fa-solid fa-circle-check text-sky-500 mr-1"></i> Mengikuti tes minat bakat terstandar seperti model RIASEC.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab B: Model RIASEC -->
+                        <div id="tab-riasec" class="tab-content-materi hidden space-y-4 text-base font-normal text-slate-800">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Teori Holland</span>
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-cubes text-amber-500"></i> 6 Tipe Kepribadian Holland (RIASEC)
+                                </h3>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+                                Menurut John L. Holland, pilihan karir merupakan cerminan dari tipe kepribadian seseorang. RIASEC membagi lingkungan kerja dan tipe kepribadian menjadi enam tipe utama:
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs leading-relaxed">
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <strong class="text-orange-600 block mb-1">🛠️ Realistis (R)</strong>
+                                    Menyukai pekerjaan praktis, menggunakan peralatan mekanis, perakitan mesin, dan aktivitas fisik luar ruangan.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <strong class="text-sky-600 block mb-1">🔬 Investigatif (I)</strong>
+                                    Menyukai kegiatan analisis ilmiah, penelitian mendalam, penyelesaian masalah logis, dan eksplorasi akademis.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <strong class="text-purple-600 block mb-1">🎨 Artistik (A)</strong>
+                                    Menyukai kuas gambar bebas, kreasi seni bebas, desain visual kreatif, penulisan ekspresif, dan aktivitas tanpa aturan baku.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <strong class="text-emerald-600 block mb-1">🤝 Sosial (S)</strong>
+                                    Menyukai kegiatan mendidik, merawat, membimbing kawan, dan melayani kebutuhan komunitas sosial.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <strong class="text-rose-600 block mb-1">💼 Usaha (E)</strong>
+                                    Menyukai kegiatan memimpin, bernegosiasi, menjual produk, mengarahkan tim, dan mengelola usaha/bisnis mandiri.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <strong class="text-slate-600 block mb-1">📊 Konvensional (C)</strong>
+                                    Menyukai ketelitian data administratif, pengorganisasian berkas keuangan, dan mengikuti standar kerja terstruktur.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab C: Hubungan dengan Jurusan -->
+                        <div id="tab-heavy" class="tab-content-materi hidden space-y-4 text-base font-normal text-slate-800">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Relevansi Kompetensi Keahlian</span>
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-gears text-amber-500"></i> Integrasi RIASEC dengan Program Keahlian
+                                </h3>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm space-y-2">
+                                    <h4 class="font-bold text-slate-800 border-b pb-1">🔧 Klaster Teknik & Rekayasa</h4>
+                                    <ul class="space-y-1 text-slate-600">
+                                        <li><strong>Teknik Alat Berat (TAB):</strong> Sangat cocok untuk tipe <em>Realistis</em> dan <em>Investigatif</em>. Berfokus pada perbaikan unit mekanik besar dan analisis kerusakan hidrolik.</li>
+                                        <li><strong>Teknik Kendaraan Ringan (TKR):</strong> Relevan dengan tipe <em>Realistis</em>. Mempelajari sistem transmisi mobil, kelistrikan EFI, dan overhaul mesin.</li>
+                                        <li><strong>Geologi Pertambangan (GP):</strong> Relevan dengan tipe <em>Investigatif</em> dan <em>Realistis</em>. Fokus pada pemetaan bumi dan klasifikasi jenis batuan tambang.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm space-y-2">
+                                    <h4 class="font-bold text-slate-800 border-b pb-1">🎨 Klaster Kreatif & Industri Modern</h4>
+                                    <ul class="space-y-1 text-slate-600">
+                                        <li><strong>Desain Komunikasi Visual (DKV):</strong> Sangat relevan dengan tipe <em>Artistik</em>. Berfokus pada pembuatan materi promosi, sketsa digital, videografi, dan fotografi.</li>
+                                        <li><strong>Desain Produksi Busana (DPB):</strong> Relevan dengan tipe <em>Artistik</em> and <em>Realistis</em>. Mempelajari konstruksi pola pakaian, teknik menjahit, dan padu padan industri fashion.</li>
+                                        <li><strong>Mekanisasi Pertanian (MP):</strong> Relevan dengan tipe <em>Realistis</em>. Mengoperasikan and merawat armada alat mesin pertanian modern secara efektif.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab D: Rencana Karir -->
+                        <div id="tab-plan" class="tab-content-materi hidden space-y-4 text-base font-normal text-slate-800">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Perancangan Masa Depan</span>
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-map text-amber-500"></i> Tangga Rencana Karir
+                                </h3>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+                                Karir yang sukses tidak terjadi begitu saja, melainkan harus direncanakan dengan matang semenjak masa sekolah di SMK. Berikut adalah langkah penting perencanaan karir:
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-xs leading-relaxed">
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <span class="w-5 h-5 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-[10px] mb-1">1</span>
+                                    <strong>Eksplorasi Karir Mandiri:</strong> Kenali bakat, minat, dan gaya kerja pribadi melalui tes RIASEC.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <span class="w-5 h-5 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-[10px] mb-1">2</span>
+                                    <strong>Pemetaan Peluang Kerja:</strong> Pelajari profil pekerjaan, prospek pertumbuhan industri, dan kualifikasi kompetensi yang dibutuhkan.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <span class="w-5 h-5 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-[10px] mb-1">3</span>
+                                    <strong>Pengambilan Keputusan Karir:</strong> Pilih bidang spesialisasi yang paling cocok dengan kepribadian kerja untuk ditekuni secara mendalam.
+                                </div>
+                                <div class="bg-white p-3 border border-slate-200 rounded-xl shadow-sm">
+                                    <span class="w-5 h-5 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-[10px] mb-1">4</span>
+                                    <strong>Pengembangan Rencana Aksi:</strong> Ikuti pelatihan sertifikasi keahlian, aktif dalam magang industri, dan bangun koneksi profesional.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button onclick="pindahHalaman('hal2-menu')" class="mt-4 flex items-center justify-center gap-2 px-10 py-4 bg-smkYellow hover:bg-amber-400 text-smkNavy-deep font-bold rounded-2xl hover:scale-105 transform transition duration-200 active:scale-95 self-start border-2 border-amber-300 text-base shadow-md">
+                    <i class="fa-solid fa-house-user"></i> Kembali ke Menu Utama
+                </button>
+            </div>
+
+            <!-- ================= HALAMAN 6: EVALUASI (BINGKAI & GARIS DIPERTEBAL border-2 AGAR SANGAT JELAS) ================= -->
+            <div id="hal4-evaluasi" class="page-transition hidden w-[1120px] h-[520px] bg-[#fdfbf7] text-slate-900 rounded-[2.5rem] border-2 border-slate-300 shadow-2xl p-8 flex flex-col justify-between overflow-hidden">
+                
+                <div class="w-full flex flex-col justify-between flex-grow">
+                    <div class="flex flex-col border-b-2 border-slate-300 pb-3 mb-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-white to-smkYellow border border-smkYellow rounded-2xl flex items-center justify-center text-smkNavy-deep shadow">
+                                    <i class="fa-solid fa-clipboard-question text-xl animate-pulse"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-2xl font-bold text-slate-900 leading-tight uppercase">Evaluasi Pemahaman RIASEC</h2>
+                                    <p class="text-xs text-slate-500">Uji pemahaman Anda mengenai potensi, kepribadian, dan pilihan karier terarah</p>
+                                </div>
+                            </div>
+                            <div id="quizTimer" class="px-3.5 py-1.5 bg-slate-100 text-amber-600 font-extrabold text-xs rounded-xl border border-slate-200 uppercase tracking-wider">
+                                Evaluasi Mandiri BK
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden mt-3 relative">
+                            <div id="quizProgressBar" class="bg-gradient-to-r from-sky-400 to-smkYellow h-full w-0 transition-all duration-300 shadow-[0_0_12px_rgba(56,189,248,0.6)]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Layout: Kotak Soal Sangat Dominan -->
+                    <div class="grid grid-cols-12 gap-5 items-stretch flex-grow min-h-[290px] max-h-[300px] overflow-hidden">
+                        
+                        <!-- Panel Kiri DOMINAN (col-span-10): Menampilkan Soal dan Opsi Pilihan Secara Luas (GARIS DIPERTEBAL border-2 border-slate-300) -->
+                        <div class="col-span-10 bg-white border-2 border-slate-300 rounded-2xl p-6 flex flex-col justify-between overflow-y-auto shadow-sm">
+                            <div id="quizQuestionBox" class="space-y-3.5 h-full flex flex-col justify-between">
+                                <div class="space-y-2">
+                                    <span class="px-3 py-1 bg-sky-100 text-sky-700 text-xs font-bold rounded-full uppercase tracking-wider" id="quizQuestionNo">
+                                        Pertanyaan 1 dari 10
+                                    </span>
+                                    <h3 class="text-xl font-bold text-slate-900 leading-snug" id="quizQuestionText">
+                                        Memuat pertanyaan...
+                                    </h3>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-3 pb-1" id="quizOptionsContainer">
+                                    <!-- Diisi secara dinamis dengan 4 tombol jawaban -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel Kanan KOMPAK (col-span-2): Sebagai Alat Kontrol Samping Nomor Soal (GARIS DIPERTEBAL border-2 border-slate-300) -->
+                        <div class="col-span-2 bg-slate-50 border-2 border-slate-300 rounded-2xl p-4 flex flex-col justify-between shadow-inner">
+                            <div class="space-y-3">
+                                <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Navigasi</h4>
+                                <div class="grid grid-cols-3 gap-1.5" id="quizNumberGrid">
+                                    <!-- Diisi secara dinamis dengan 10 tombol kecil -->
+                                </div>
+                            </div>
+
+                            <div class="pt-3 border-t border-slate-200 space-y-1.5 text-[9px] text-slate-500">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-3 h-3 rounded bg-sky-400 border border-sky-500 inline-block"></span>
+                                    <span>Nomor Aktif</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-3 h-3 rounded bg-amber-400 inline-block"></span>
+                                    <span>Terisi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Kontrol Kuis -->
+                    <div class="flex justify-between items-center mt-3 pt-3 border-t-2 border-slate-300">
+                        <div class="flex items-center gap-3">
+                            <button onclick="prevQuestion()" id="btnPrevQuiz" class="px-5 py-3 bg-slate-700 hover:bg-slate-600 text-slate-100 font-bold rounded-xl transition duration-150 text-xs flex items-center gap-2 border border-slate-600 disabled:opacity-40">
+                                <i class="fa-solid fa-circle-arrow-left"></i> SEBELUMNYA
+                            </button>
+                            <button onclick="nextQuestion()" id="btnNextQuiz" class="px-5 py-3 bg-smkYellow hover:bg-amber-500 text-smkNavy-deep font-black rounded-xl transition duration-150 text-xs flex items-center gap-2">
+                                BERIKUTNYA <i class="fa-solid fa-circle-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <button onclick="pindahHalaman('hal2-menu')" class="px-6 py-3 border border-slate-200 text-slate-500 hover:text-slate-800 font-bold rounded-xl transition text-xs flex items-center gap-1">
+                                <i class="fa-solid fa-house-user"></i> MENU UTAMA
+                            </button>
+                            <button onclick="submitQuiz()" id="btnSubmitQuiz" class="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black rounded-xl transition shadow-lg shadow-emerald-500/10 text-xs flex items-center gap-2">
+                                KIRIM JAWABAN <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= HALAMAN 7: PERMAINAN "AKADEMI KARIER 2070" ================= -->
+            <div id="hal5-permainan" class="page-transition hidden w-[1120px] h-[520px] bg-[#fdfbf7] text-slate-900 rounded-[2.5rem] border-2 border-amber-200 shadow-2xl p-8 flex flex-col justify-between overflow-hidden">
+                
+                <!-- Layar 1: Menu Game -->
+                <div id="game-screen-menu" class="w-full h-full flex flex-col justify-between items-center text-center py-6 space-y-4">
+                    <div class="relative w-full flex-grow flex flex-col items-center justify-center space-y-6">
+                        <div class="absolute inset-0 flex justify-around items-center opacity-15 pointer-events-none">
+                            <i class="fa-solid fa-robot text-7xl text-sky-400 animate-bounce"></i>
+                            <i class="fa-solid fa-compass text-7xl text-emerald-400 animate-spin" style="animation-duration: 15s"></i>
+                            <i class="fa-solid fa-user-astronaut text-7xl text-purple-400 animate-bounce" style="animation-delay: 1s"></i>
+                            <i class="fa-solid fa-bolt text-7xl text-orange-400 animate-pulse"></i>
+                        </div>
+
+                        <div class="space-y-3 z-10">
+                            <span class="px-4 py-1.5 bg-emerald-100 text-emerald-800 font-extrabold text-xs rounded-full uppercase tracking-widest border-2 border-emerald-300 shadow-sm animate-pulse flex items-center justify-center gap-1 mx-auto w-max">
+                                <i class="fa-solid fa-gamepad"></i> SIMULASI EKSPLORASI MANDIRI
+                            </span>
+                            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-600 via-emerald-600 to-orange-500 bg-clip-text text-transparent">
+                                AKADEMI KARIER 2070
+                            </h1>
+                            <p class="text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
+                                Selamat datang Kadet Karier! Aktifkan kembali 6 portal energi profesi masa depan, bersihkan sistem, dan bangun Kota Karier impianmu.
+                            </p>
+                        </div>
+
+                        <div class="w-full max-w-xl h-20 bg-slate-100 rounded-2xl relative overflow-hidden flex items-center justify-around border-b-4 border-slate-300 shadow-inner">
+                            <div class="flex items-center gap-1 bg-white px-3 py-1.5 rounded-xl shadow-sm text-xs font-bold text-slate-700 animate-float">
+                                🤖 Asisten Bot
+                            </div>
+                            <div class="flex items-center gap-1 bg-white px-3 py-1.5 rounded-xl shadow-sm text-xs font-bold text-slate-700 animate-float-reverse">
+                                🛸 Drone Layanan
+                            </div>
+                            <div class="flex items-center gap-1 bg-white px-3 py-1.5 rounded-xl shadow-sm text-xs font-bold text-slate-700 animate-float">
+                                🔋 Portal Energi
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 justify-center w-full z-10">
+                        <button onclick="startGame()" class="px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xl rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-3">
+                            <i class="fa-solid fa-play-circle text-2xl animate-spin" style="animation-duration: 3s"></i> MULAI PETUALANGAN
+                        </button>
+                        <button onclick="showGameGuide()" class="px-8 py-5 bg-sky-100 hover:bg-sky-200 text-sky-800 font-extrabold text-lg rounded-2xl active:scale-95 transition flex items-center gap-2 border border-sky-200">
+                            <i class="fa-solid fa-circle-question"></i> PETUNJUK MISI
+                        </button>
+                        <button onclick="pindahHalaman('hal2-menu')" class="px-8 py-5 bg-white hover:bg-slate-50 text-slate-600 font-extrabold text-lg rounded-2xl active:scale-95 transition border border-slate-200 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-house"></i> MENU UTAMA
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Layar 2: Petunjuk Misi Game -->
+                <div id="game-screen-guide" class="hidden w-full h-full flex flex-col justify-between py-2">
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-black text-slate-800 flex items-center gap-2 border-b border-slate-200 pb-2">
+                            <i class="fa-solid fa-compass text-sky-500"></i> Panduan Akademi Karier 2070
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                            <div class="p-4 bg-sky-50 border border-sky-100 rounded-xl space-y-1">
+                                <span class="px-2 py-0.5 bg-sky-100 text-sky-800 font-black rounded text-[10px]">Misi 1</span>
+                                <p class="font-bold text-xs text-slate-800">🔌 Penyelamatan Portal</p>
+                                <p class="text-xs text-slate-500">Hubungkan objek praktik ke dalam 6 Portal RIASEC yang sesuai untuk memulihkan energinya.</p>
+                            </div>
+                            <div class="p-4 bg-emerald-50 border border-emerald-100 rounded-xl space-y-1">
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-black rounded text-[10px]">Misi 2</span>
+                                <p class="font-bold text-xs text-slate-800">👾 Pembersihan Sistem</p>
+                                <p class="text-xs text-slate-500">Tangkap objek profesi yang sesuai dengan dunia aktif sebelum waktu habis. Hindari objek luar dunia!</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl space-y-1">
+                                <span class="px-2 py-0.5 bg-orange-100 text-orange-800 font-black rounded text-[10px]">Misi 3</span>
+                                <p class="font-bold text-xs text-slate-800">🏙️ Kota Masa Depan</p>
+                                <p class="text-xs text-slate-500">Bangun Kota Karir dengan menempatkan bangunan profesi ke zona wilayah kepribadian yang tepat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="hideGameGuide()" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-900 text-white font-extrabold rounded-xl transition self-start flex items-center gap-2 text-xs">
+                        <i class="fa-solid fa-circle-chevron-left"></i> KEMBALI
+                    </button>
+                </div>
+
+                <!-- Layar 3: Arena Utama Game -->
+                <div id="game-screen-arena" class="hidden w-full h-full flex flex-col justify-between">
+                    <div class="flex items-center justify-between bg-white border border-slate-200 px-5 py-3 rounded-2xl shadow-sm mb-3">
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Tingkatan Misi</span>
+                                <span id="gameHudLevel" class="text-sm font-black text-sky-600 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-rocket animate-bounce"></i> MISI 1: PENYELAMATAN PORTAL
+                                </span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Kemajuan</span>
+                                <span id="gameHudCorrect" class="text-sm font-black text-emerald-600">0 / 6</span>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow max-w-sm mx-6">
+                            <div class="flex justify-between items-center text-[10px] text-slate-400 font-bold mb-1">
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-chart-line"></i> GENERASI ENERGI KOTA</span>
+                                <span id="gameProgressPercent" class="text-orange-500">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div id="gameProgressBar" class="bg-gradient-to-r from-sky-400 via-emerald-400 to-orange-400 h-full w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col text-right">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Keseimbangan Potensi</span>
+                                <span id="gameHudScore" class="text-sm font-black text-orange-500">Aktif</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-xl text-slate-700 font-bold text-xs">
+                                <i class="fa-regular fa-clock text-sky-500 animate-spin" style="animation-duration: 4s"></i>
+                                <span id="gameHudTimer">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AREA TEMPAT MELETINGKAN RENDERER GAME (DYNAMIC CANVAS / DOM INTERACTION) -->
+                    <div id="gameLevelRenderer" class="flex-grow w-full max-h-[300px] overflow-hidden relative"></div>
+
+                    <div class="flex justify-between items-center mt-3 pt-3 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <button onclick="pindahHalaman('hal2-menu')" class="px-5 py-3 border border-slate-200 text-slate-500 hover:text-slate-800 font-bold rounded-xl text-xs flex items-center gap-1.5 bg-white">
+                                <i class="fa-solid fa-door-open"></i> Keluar ke Menu
+                            </button>
+                            <button onclick="resetCurrentGameLevel()" class="px-5 py-3 border border-orange-500 text-orange-600 hover:bg-orange-50 font-bold rounded-xl text-xs flex items-center gap-1.5 bg-white shadow-sm">
+                                <i class="fa-solid fa-arrows-rotate animate-spin" style="animation-duration: 10s"></i> Mulai Ulang Misi
+                            </button>
+                        </div>
+                        
+                        <div id="gameActionBox" class="flex items-center gap-2"></div>
+                    </div>
+                </div>
+
+                <!-- Layar 4: Hasil Khusus "PROFIL KARIER SAYA" -->
+                <div id="game-screen-result" class="hidden w-full h-full flex flex-col justify-between py-2 overflow-y-auto pr-1 text-left">
+                    <div class="text-center space-y-2 border-b pb-4">
+                        <div class="w-16 h-16 bg-gradient-to-tr from-sky-400 to-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-lg animate-bounce">
+                            <i class="fa-solid fa-building-circle-check text-4xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-black text-slate-800">
+                            Kota Karier 2070 Berhasil Berdiri! 🎉
+                        </h2>
+                        <p class="text-sm text-slate-500 max-w-2xl mx-auto">
+                            Berdasarkan pilihan aktivitas, ketangkasan, dan eksplorasi tata ruang zonasi yang telah kamu jalani, inilah peta kecenderungan potensimu:
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch my-4">
+                        <!-- Profil Kiri: Jenis Dominan -->
+                        <div class="md:col-span-4 bg-gradient-to-b from-sky-50 to-white border-2 border-sky-200 p-5 rounded-3xl flex flex-col justify-center text-center shadow-md">
+                            <span class="text-xs text-slate-400 font-bold uppercase tracking-widest block">Tipe Kepribadian Kerja Dominan</span>
+                            <h3 id="gameResultRiasec" class="text-2xl font-black text-sky-600 mt-2">REALISTIS - INVESTIGATIF (RI)</h3>
+                            <div class="h-px bg-slate-200 my-4"></div>
+                            <span class="text-xs text-slate-400 font-bold uppercase tracking-widest block">Potensi Inti</span>
+                            <h4 id="gameResultPotensi" class="text-base font-bold text-slate-700 mt-1">Praktikal Mekanikal & Logika Analitis</h4>
+                        </div>
+
+                        <!-- Profil Ranan: Jurusan & Karir Eksplorasi -->
+                        <div class="md:col-span-8 bg-white border border-slate-200 p-5 rounded-3xl space-y-4 shadow-sm">
+                            <div class="space-y-1">
+                                <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                                    <i class="fa-solid fa-school text-emerald-500"></i> Program Keahlian Relevan di SMKN 1 Binuang:
+                                </h4>
+                                <p id="gameResultJurusan" class="text-base font-bold text-slate-800">Teknik Alat Berat / Geologi Pertambangan</p>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                                    <i class="fa-solid fa-user-gear text-orange-500"></i> Rekomendasi Karir untuk Dieksplorasi:
+                                </h4>
+                                <p id="gameResultKarir" class="text-sm text-slate-600 leading-relaxed font-normal">
+                                    Mekanik Alat Berat, Teknisi Pemetaan Tambang, Operator Alat Berat, Ahli Kelistrikan Mesin Profil, Supervisor Lapangan.
+                                </p>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                                    <i class="fa-solid fa-road text-purple-500"></i> Langkah Pengembangan Diri Selanjutnya:
+                                </h4>
+                                <p class="text-xs text-slate-500 leading-relaxed font-normal">
+                                    Kembangkan terus kemampuan pemecahan masalah (troubleshooting), rajin mengikuti sesi praktik kejuruan sekolah, dan konsultasikan pilihan profesimu dengan Guru BK.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informasi pengunduhan alternatif -->
+                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center gap-3">
+                        <i class="fa-solid fa-circle-info text-blue-500 text-2xl animate-bounce"></i>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            <strong>Analisis Hasil Profil Anda Telah Direkam!</strong> Seluruh data di atas disimpan dengan aman dalam sistem. Anda dapat melihat dan menunjukkan hasil ini ke guru Bimbingan Konseling (BK) untuk merancang langkah eksplorasi karier selanjutnya secara terarah.
+                        </p>
+                    </div>
+
+                    <!-- TOMBOL KONTROL AKHIR PERMAINAN - TAMBAHKAN TOMBOL LANJUT KE SERTIFIKAT -->
+                    <div class="flex gap-4 justify-center mt-4">
+                        <button onclick="bukaSertifikatHalaman()" class="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black rounded-2xl hover:scale-105 transform transition duration-150 flex items-center gap-2 text-sm shadow-md">
+                            <i class="fa-solid fa-award text-lg animate-pulse"></i> LANJUT KE SERTIFIKAT
+                        </button>
+                        <button onclick="startGame()" class="px-8 py-4 bg-gradient-to-r from-sky-400 to-indigo-500 text-white font-black rounded-2xl hover:scale-105 transform transition duration-150 flex items-center gap-2 text-sm shadow-md">
+                            <i class="fa-solid fa-rotate-left"></i> BERMAIN LAGI
+                        </button>
+                        <button onclick="pindahHalaman('hal2-menu')" class="px-8 py-4 bg-gradient-to-r from-smkYellow to-amber-500 text-smkNavy-deep font-black rounded-2xl hover:scale-105 transform transition duration-150 flex items-center gap-2 text-sm shadow-md">
+                            <i class="fa-solid fa-house-user"></i> KEMBALI KE MENU UTAMA
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= HALAMAN 8: SERTIFIKAT FORMAL & CASUAL (UTUH & PREMIUM PUTIH-GOLD) ================= -->
+            <div id="hal6-sertifikat" class="page-transition hidden w-[1120px] h-[520px] bg-[#070a13] text-slate-100 rounded-[2.5rem] border border-slate-800 shadow-2xl p-6 flex flex-col justify-between overflow-hidden relative">
+                
+                <!-- AREA SERTIFIKAT UTAMA (YANG DICETAK - PREMIUM PUTIH/GOLD GRADIENT) -->
+                <div id="printable-certificate" class="bg-gradient-to-br from-white via-[#fffdf5] to-[#fbf4db] border-[8px] border-amber-500/80 p-8 rounded-3xl h-[390px] flex flex-col justify-between items-center text-center relative overflow-hidden shadow-2xl w-full text-slate-900 transition duration-300">
+                    
+                    <!-- Ornamen Latar Belakang Casual / Abstrak Geometris Emas -->
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-amber-400/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-500/15 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 border-r-4 border-t-4 border-amber-500/20 rounded-tr-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 border-l-4 border-b-4 border-amber-500/20 rounded-bl-3xl"></div>
+
+                    <!-- Header Sertifikat (Nasionalis & Formal) -->
+                    <div class="w-full flex flex-col justify-center items-center border-b border-amber-500/20 pb-3 z-10">
+                        <h1 class="text-2xl font-serif font-black tracking-widest text-amber-600 uppercase">SERTIFIKAT PENGHARGAAN</h1>
+                        <p class="text-[11px] font-bold tracking-wider text-slate-500 uppercase mt-0.5">Diberikan Oleh: Layanan Bimbingan & Konseling E-Karir BK</p>
+                    </div>
+
+                    <!-- Konten Pengesahan Nama & Jurusan -->
+                    <div class="w-full flex flex-col items-center justify-center z-10 mt-1">
+                        <p class="text-xs italic text-slate-500 mb-1">Dengan bangga menyatakan bahwa:</p>
+                        
+                        <!-- Nama Siswa (Font Besar, Tegas & Indigo Gelap Kontras) -->
+                        <h2 id="certUser" class="text-3xl font-black text-indigo-950 tracking-wide drop-shadow-sm uppercase">NAMA SISWA LENGKAP</h2>
+                        
+                        <!-- Garis Pembatas Emas Sesuai Permintaan -->
+                        <div class="w-1/3 border-b-2 border-amber-500/80 my-2"></div>
+                        
+                        <!-- Jurusan/Program Keahlian (Font Lebih Kecil & Legap) -->
+                        <p class="text-sm font-semibold tracking-wide text-sky-800 uppercase">
+                            <span id="certAsal" class="text-slate-700 font-semibold">PROGRAM KEAHLIAN: -</span>
+                        </p>
+                    </div>
+
+                    <!-- Redaksi Isi Hasil Evaluasi & Permainan -->
+                    <div class="max-w-3xl mx-auto bg-white/70 border border-amber-200/50 p-3.5 rounded-2xl z-10 shadow-sm mt-1">
+                        <p class="text-[11px] text-slate-700 leading-relaxed text-center">
+                            Telah dinyatakan <b>LULUS & KOMPETEN</b> dalam menyelesaikan seluruh tantangan simulasi di ekosistem Perencanaan Karir melalui Model RIASEC. Berdasarkan rekapitulasi data, yang bersangkutan memperoleh skor evaluasi pemahaman teori <b id="certScoreDisplay" class="text-indigo-950">0/100</b>, serta menunjukkan kecenderungan minat karir dominan berbasis Holland Code di bidang:
+                        </p>
+                        <!-- Hasil Minat Karir Dinamis (Putih/Emas) -->
+                        <div class="mt-2 inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/20 px-4 py-1 rounded-xl">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-600 text-xs animate-pulse"></i>
+                            <span id="certDominantLabel" class="text-[11px] font-black tracking-wide text-amber-900 uppercase font-mono">REALISTIC - INVESTIGATIVE (TEKNIK & ANALISIS DATA)</span>
+                        </div>
+                    </div>
+
+                    <!-- Bagian Bawah: Tanggal, Barcode, & Tanda Tangan Guru BK -->
+                    <div class="w-full flex justify-between items-end px-6 z-10 mt-1">
+                        <!-- Sisi Kiri: Tanggal Terbit -->
+                        <div class="text-left text-[11px] text-slate-500 space-y-1">
+                            <p class="font-medium">Diterbitkan pada tanggal:</p>
+                            <p id="certDate" class="font-bold text-slate-200 bg-amber-500/5 px-2.5 py-1 rounded-md border border-amber-500/20 inline-block">9 Juni 2026</p>
+                        </div>
+
+                        <!-- Sisi Kanan: Barcode & Identitas Guru BK -->
+                        <div class="flex items-center gap-4 text-right text-slate-900">
+                            <!-- Tanda Tangan Barcode / QR Code (Casual Style) -->
+                            <div class="bg-white p-1 rounded-lg border-2 border-amber-500/20 shadow-md group hover:scale-105 transition duration-300">
+                                <img id="certQR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=VERIFIED-HIDAYAT-RAHMAN-AK70" alt="Tanda Tangan Digital" class="w-12 h-12 object-contain">
+                            </div>
+                            
+                            <div class="space-y-0.5 text-left border-l border-slate-300 pl-4">
+                                <p class="text-xs font-black text-slate-800 tracking-wide">Hidayat Rahman, S.Pd.</p>
+                                <p class="text-[10px] text-sky-400 font-bold leading-tight">Guru Bimbingan Konseling</p>
+                                <p class="text-[9px] text-slate-500 font-mono" id="certSignDate">NIPPPK. 199202022022211010</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOMBOL KONTROL HALAMAN -->
+                <div class="flex justify-center items-center gap-4 mt-2">
+                    <button onclick="pindahHalaman('hal2-menu')" class="flex items-center justify-center gap-2 px-8 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs transition border border-slate-700">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu
+                    </button>
+                    
+                    <button onclick="cetakSertifikat()" class="flex items-center justify-center gap-2 px-10 py-3 bg-gradient-to-r from-amber-50 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-black rounded-xl text-xs shadow-lg shadow-amber-500/20 transition transform hover:scale-[1.02]">
+                        <i class="fa-solid fa-download animate-bounce"></i> UNDUH / CETAK SERTIFIKAT DIGITAL
+                    </button>
+                </div>
+            </div>
+
+
+
+        </main>
+
+        <footer class="w-full text-center py-4 border-t border-slate-800/20 bg-smkNavy-deep/20 z-10"></footer>
+
+        <!-- ================= MODALS SECTION ================= -->
+        
+        <!-- 1. Modal Petunjuk Penggunaan -->
+        <div id="modalPetunjuk" class="fixed inset-0 bg-smkNavy-deep/80 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <div class="bg-gradient-to-br from-amber-50 via-white to-amber-50/50 border-2 border-smkYellow rounded-3xl p-8 max-w-2xl w-full mx-4 shadow-2xl space-y-6 transform scale-95 transition-transform duration-300 relative text-slate-800">
+                <button onclick="tutupModal('modalPetunjuk')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition duration-200">
+                    <i class="fa-solid fa-circle-xmark text-3xl text-amber-500"></i>
+                </button>
+                <div class="flex items-center gap-4 border-b border-amber-200 pb-4">
+                    <div class="w-12 h-12 bg-smkYellow text-smkNavy-deep rounded-xl flex items-center justify-center shadow">
+                        <i class="fa-solid fa-map-signs text-xl animate-bounce"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900">Petunjuk Penggunaan</h3>
+                </div>
+                <div class="space-y-4 max-h-[380px] overflow-y-auto pr-2 text-left">
+                    <div class="flex gap-4 items-start">
+                        <span class="w-8 h-8 bg-smkYellow text-smkNavy-deep font-black rounded-full flex items-center justify-center text-sm flex-shrink-0 shadow-sm">1</span>
+                        <p class="text-sm text-slate-800 leading-relaxed font-semibold pt-1">Masuk dengan mengisi Nama Lengkap dan Program Keahlian Anda secara lengkap.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <span class="w-8 h-8 bg-smkYellow text-smkNavy-deep font-black rounded-full flex items-center justify-center text-sm flex-shrink-0 shadow-sm">2</span>
+                        <p class="text-sm text-slate-800 leading-relaxed font-semibold pt-1">Pelajari modul materi bimbingan dan ikuti kuis evaluasi tertulis.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <span class="w-8 h-8 bg-smkYellow text-smkNavy-deep font-black rounded-full flex items-center justify-center text-sm flex-shrink-0 shadow-sm">3</span>
+                        <p class="text-sm text-slate-800 leading-relaxed font-semibold pt-1">Selesaikan simulasi petualangan game 3 Tingkat "Akademi Karier 2070" untuk memetakan minat dominanmu.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <span class="w-8 h-8 bg-smkYellow text-smkNavy-deep font-black rounded-full flex items-center justify-center text-sm flex-shrink-0 shadow-sm">4</span>
+                        <p class="text-sm text-slate-800 leading-relaxed font-semibold pt-1">Cetak dan unduh file sertifikat digital kelulusan Anda secara resmi di akhir proses!</p>
+                    </div>
+                </div>
+                <button onclick="tutupModal('modalPetunjuk')" class="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white font-extrabold rounded-xl transition duration-200 shadow-lg text-base flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Mengerti
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. Modal Referensi & Aset -->
+        <div id="modalReferensi" class="fixed inset-0 bg-smkNavy-deep/80 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <div class="bg-gradient-to-br from-amber-50 via-white to-amber-50/50 border-2 border-smkYellow rounded-3xl p-8 max-w-2xl w-full mx-4 shadow-2xl space-y-6 transform scale-95 transition-transform duration-300 relative text-slate-800">
+                <button onclick="tutupModal('modalReferensi')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition duration-200">
+                    <i class="fa-solid fa-circle-xmark text-3xl text-amber-500"></i>
+                </button>
+                <div class="flex items-center gap-4 border-b border-amber-200 pb-4">
+                    <div class="w-12 h-12 bg-smkYellow text-smkNavy-deep rounded-xl flex items-center justify-center shadow">
+                        <i class="fa-solid fa-bookmark text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900">Referensi & Aset Teori</h3>
+                </div>
+                <div class="space-y-4 max-h-[380px] overflow-y-auto pr-2 text-left text-xs text-slate-700">
+                    <div class="p-4 bg-white border border-amber-200 rounded-xl flex items-start gap-3 shadow-sm">
+                        <i class="fa-solid fa-book-journal-whills text-amber-600 text-2xl mt-1 flex-shrink-0"></i>
+                        <p class="leading-relaxed">
+                            <strong>Holland, J. L. (1997).</strong> <em>Making Vocational Choices: A Theory of Vocational Personalities and Work Environments (3rd ed.).</em> Oklahoma Publishing Company.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-white border border-amber-200 rounded-xl flex items-start gap-3 shadow-sm">
+                        <i class="fa-solid fa-graduation-cap text-sky-600 text-2xl mt-1 flex-shrink-0"></i>
+                        <p class="leading-relaxed">
+                            <strong>Kemendikbudristek.</strong> <em>Modul 7 Jurus BK Kemendikdasmen: Kenali Potensi.</em> Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-white border border-amber-200 rounded-xl flex items-start gap-3 shadow-sm">
+                        <i class="fa-solid fa-clipboard-list text-emerald-600 text-2xl mt-1 flex-shrink-0"></i>
+                        <p class="leading-relaxed">
+                            <strong>BNSP (Badan Nasional Sertifikasi Profesi). (2023).</strong> <em>Standar Kompetensi Kerja Nasional Indonesia (SKKNI) Bidang Industri.</em> Jakarta.
+                        </p>
+                    </div>
+                    
+                    <!-- Powered By Section -->
+                    <div class="pt-4 border-t border-amber-200/80">
+                        <h4 class="text-sm font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt text-amber-500 animate-pulse"></i> Powered by :
+                        </h4>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="p-3 bg-white border border-slate-200 rounded-xl text-center shadow-sm">
+                                <span class="font-bold text-slate-800 block text-xs">Gemini AI Canvas</span>
+                            </div>
+                            <div class="p-3 bg-white border border-slate-200 rounded-xl text-center shadow-sm">
+                                <span class="font-bold text-slate-800 block text-xs">Canva</span>
+                            </div>
+                            <div class="p-3 bg-white border border-slate-200 rounded-xl text-center shadow-sm">
+                                <span class="font-bold text-slate-800 block text-xs">Storyline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="tutupModal('modalReferensi')" class="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white font-extrabold rounded-xl transition duration-200 shadow-lg text-base flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Tutup
+                </button>
+            </div>
+        </div>
+
+        <!-- 3. Modal Profil Pengembang -->
+        <div id="modalProfil" class="fixed inset-0 bg-smkNavy-deep/80 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <div class="bg-gradient-to-br from-amber-50 via-white to-amber-50/50 border-2 border-smkYellow rounded-3xl p-8 max-w-2xl w-full mx-4 shadow-2xl space-y-6 transform scale-95 transition-transform duration-300 relative text-slate-800">
+                <button onclick="tutupModal('modalProfil')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 transition duration-200">
+                    <i class="fa-solid fa-circle-xmark text-3xl text-amber-500"></i>
+                </button>
+                <div class="flex items-center gap-4 border-b border-amber-200 pb-4">
+                    <div class="w-12 h-12 bg-smkYellow text-smkNavy-deep rounded-xl flex items-center justify-center shadow">
+                        <i class="fa-solid fa-id-badge text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900">Profil Pengembang</h3>
+                </div>
+                
+                <div class="space-y-5 text-slate-800 text-left">
+                    <div class="flex items-center gap-4 bg-white border border-amber-200 p-5 rounded-2xl shadow-sm">
+                        <!-- Avatar Vektor Guru Laki-laki -->
+                        <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-sky-100 flex items-center justify-center shadow-md border border-sky-300 animate-float">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <!-- Background -->
+                                <circle cx="50" cy="50" r="48" fill="#e0f2fe"/>
+                                <!-- Suit -->
+                                <path d="M22,90 C28,72 38,68 50,68 C62,68 72,72 78,90 Z" fill="#1e293b"/>
+                                <!-- Collar -->
+                                <path d="M44,68 L56,68 L50,82 Z" fill="#ffffff"/>
+                                <!-- Tie -->
+                                <path d="M48,72 L52,72 L53,92 L50,96 L47,92 Z" fill="#facc15"/>
+                                <!-- Neck -->
+                                <rect x="43" y="58" width="14" height="12" fill="#fed7aa"/>
+                                <!-- Face -->
+                                <circle cx="50" cy="42" r="19" fill="#fed7aa"/>
+                                <!-- Hair -->
+                                <path d="M31,41 C31,23 39,18 50,18 C61,18 69,23 69,41 C69,31 61,24 50,24 C39,24 31,31 31,41 Z" fill="#0f172a"/>
+                                <path d="M31,39 Q41,26 50,28 Q59,26 69,39 Q66,20 50,20 Q34,20 31,39 Z" fill="#020617"/>
+                                <!-- Glasses -->
+                                <circle cx="42" cy="40" r="5.5" fill="none" stroke="#0f172a" stroke-width="1.8"/>
+                                <circle cx="58" cy="40" r="5.5" fill="none" stroke="#0f172a" stroke-width="1.8"/>
+                                <line x1="47.5" y1="40" x2="52.5" y2="40" stroke="#0f172a" stroke-width="1.8"/>
+                                <line x1="36.5" y1="39.5" x2="33" y2="39.5" stroke="#0f172a" stroke-width="1.8"/>
+                                <line x1="63.5" y1="39.5" x2="67" y2="39.5" stroke="#0f172a" stroke-width="1.8"/>
+                                <!-- Smile -->
+                                <path d="M45,49 Q50,52 55,49" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">Hidayat Rahman, S.Pd.</h4>
+                            <p class="text-xs text-amber-700 font-bold uppercase tracking-wider">Guru BK SMKN 1 Binuang</p>
+                            <p class="text-xs text-slate-500 font-semibold mt-1">NIPPPK. 199202022022211010</p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/6285248824757" target="_blank" class="flex items-center justify-center gap-3 w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-xl transition duration-200 shadow-md text-base">
+                        <i class="fa-brands fa-whatsapp text-2xl animate-pulse"></i> HUBUNGI SAYA VIA WA
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CUSTOM ALERT MODAL -->
+        <div id="customModal" class="fixed inset-0 bg-smkNavy-deep/80 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <div class="bg-gradient-to-br from-amber-50 via-white to-amber-50/50 rounded-3xl p-8 max-w-sm w-full mx-4 text-center space-y-6 shadow-2xl border-2 border-smkYellow transform scale-95 transition-transform duration-300 text-slate-800">
+                <div class="w-16 h-16 bg-red-100 text-red-500 rounded-2xl flex items-center justify-center mx-auto border border-red-200">
+                    <i class="fa-solid fa-circle-exclamation text-3xl"></i>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-slate-900" id="modalTitle">Eitss, Sebentar!</h4>
+                    <p class="text-sm text-slate-600" id="modalMessage">Tolong lengkapi nama dan program keahlianmu dulu ya.</p>
+                </div>
+                <button onclick="tutupAlertModal()" class="w-full py-3.5 bg-smkBlue hover:bg-smkBlue-dark text-white font-black rounded-2xl transition duration-200 active:scale-95 shadow-lg shadow-smkBlue/20">
+                    Oke, Siap!
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PENTING: KONSOLIDASI SELURUH KODE JAVASCRIPT KE DALAM SATU SCRIPT UTUH UNTUK MENGHILANGKAN REFERENCE-ERROR KLIK MENU -->
+    <script>
+        const semuaHalaman = [
+            'hal1-welcome',
+            'hal1-login',
+            'hal2-menu',
+            'hal3-materi',
+            'hal4-evaluasi',
+            'hal5-permainan',
+            'hal6-sertifikat',
+            'hal7-cptp'
+        ];
+
+        // Global User State
+        window.smkUserData = {
+            nama: "MUHAMMAD BUDI UTOMO",
+            sekolah: "TEKNIK ALAT BERAT",
+            evalScore: null,
+            quizCompleted: false,
+            cptpCompleted: false,   
+            materiCompleted: false, 
+            gameCompleted: false,
+            // Akumulasi Pilihan RIASEC selama bermain game
+            riasecScore: { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 }
+        };
+
+        const FILE_MUSIK_EKSTERNAL = ""; 
+
+        let audioCtx = null;
+        let bgmGainNode = null;
+        let audioInterval = null;
+        let volumeLevel = 0.80; // Volume awal musik latar (80%)
+        let isMuted = false;
+        let beatCounter = 0;
+        let elemenAudioBawaan = null;
+
+        // Kuesioner Evaluasi Lengkap 10 Soal Orisinil
+        const evaluasiSoal = [
+            {
+                pertanyaan: "Potensi diri adalah ....",
+                pilihan: [
+                    "A. Kemampuan yang dimiliki seseorang dan dapat dikembangkan menjadi kelebihan",
+                    "B. Hobi yang hanya dilakukan saat waktu luang",
+                    "C. Keinginan yang belum tentu dapat diwujudkan",
+                    "D. Pekerjaan yang dilakukan setiap hari"
+                ],
+                kunci: 0
+            },
+            {
+                pertanyaan: "Mengapa penting mengenali potensi diri sejak masih sekolah?",
+                pilihan: [
+                    "A. Agar bisa memilih teman yang banyak",
+                    "B. Agar lebih mudah menentukan tujuan belajar dan karier",
+                    "C. Agar selalu menjadi juara kelas",
+                    "D. Agar tidak perlu belajar lagi setelah lulus"
+                ],
+                kunci: 1
+            },
+            {
+                pertanyaan: "Seorang siswa lebih suka memperbaiki mesin, menggunakan alat kerja, dan melakukan praktik lapangan. Tipe RIASEC yang paling sesuai adalah ....",
+                pilihan: [
+                    "A. Social",
+                    "B. Artistic",
+                    "C. Realistic",
+                    "D. Conventional"
+                ],
+                kunci: 2
+            },
+            {
+                pertanyaan: "Tipe Investigative biasanya memiliki karakteristik ....",
+                pilihan: [
+                    "A. Suka membantu orang lain and bekerja dalam kelompok",
+                    "B. Suka berpikir, menganalisis, dan mencari penyebab masalah",
+                    "C. Suka memimpin dan berjualan",
+                    "D. Suka membuat karya seni dan desain"
+                ],
+                kunci: 1
+            },
+            {
+                pertanyaan: "Jurusan Desain Komunikasi Visual (DKV) paling banyak berhubungan dengan tipe ....",
+                pilihan: [
+                    "A. Artistic",
+                    "B. Conventional",
+                    "C. Realistic",
+                    "D. Social"
+                ],
+                kunci: 0
+            },
+            {
+                pertanyaan: "Siswa yang teliti dalam membuat laporan, menyusun data, dan mengikuti prosedur kerja termasuk tipe ....",
+                pilihan: [
+                    "A. Enterprising",
+                    "B. Artistic",
+                    "C. Social",
+                    "D. Conventional"
+                ],
+                kunci: 3
+            },
+            {
+                pertanyaan: "Berikut ini yang merupakan contoh karier yang sesuai dengan jurusan Teknik Kendaraan Ringan (TKR) adalah ....",
+                pilihan: [
+                    "A. Fashion Designer",
+                    "B. Mekanik Otomotif",
+                    "C. Animator",
+                    "D. Surveyor Tambang"
+                ],
+                kunci: 1
+            },
+            {
+                pertanyaan: "Salah satu langkah awal dalam menyusun perencanaan karier adalah ....",
+                pilihan: [
+                    "A. Mengikuti pekerjaan teman",
+                    "B. Menunggu tawaran pekerjaan datang",
+                    "C. Mengenali minat dan kemampuan diri sendiri",
+                    "D. Memilih pekerjaan dengan gaji tertinggi"
+                ],
+                kunci: 2
+            },
+            {
+                pertanyaan: "Seorang siswa Geologi Pertambangan senang melakukan pengamatan lapangan dan menganalisis data batuan. Tipe RIASEC yang paling menonjol adalah ....",
+                pilihan: [
+                    "A. Investigative",
+                    "B. Social",
+                    "C. Artistic",
+                    "D. Enterprising"
+                ],
+                kunci: 0
+            },
+            {
+                pertanyaan: "Pernyataan yang paling tepat tentang perencanaan karier adalah ....",
+                pilihan: [
+                    "A. Karier hanya ditentukan oleh nilai rapor",
+                    "B. Karier yang baik dapat direncanakan sesuai minat, kemampuan, dan tujuan hidup",
+                    "C. Karier ditentukan sepenuhnya oleh orang tua",
+                    "D. Karier tidak perlu dipikirkan selama masih sekolah"
+                ],
+                kunci: 1
+            }
+        ];
+
+        let quizCurrentIndex = 0;
+        let quizAnswers = Array(10).fill(null);
+
+        // State Engine Game "AKADEMI KARIER 2070"
+        let gameActiveLevel = 1; 
+        let gameSeconds = 0;
+        let gameTimerInterval = null;
+
+        // Level 1: Misi Penyelamatan Portal
+        let l1PlacedCount = 0;
+        let l1SelectedId = null;
+        const l1Items = [
+            // R
+            { id: 1, type: 'R', text: 'Obeng 🔧' },
+            { id: 2, type: 'R', text: 'Kunci Inggris 🔧' },
+            { id: 3, type: 'R', text: 'Helm Proyek 🪖' },
+            { id: 4, type: 'R', text: 'Roda Gigi ⚙️' },
+            { id: 5, type: 'R', text: 'Excavator Mini 🚜' },
+            // I
+            { id: 6, type: 'I', text: 'Mikroskop 🔬' },
+            { id: 7, type: 'I', text: 'Kaca Pembesar 🔍' },
+            { id: 8, type: 'I', text: 'Diagram Data 📈' },
+            { id: 9, type: 'I', text: 'Data Sensor 📡' },
+            { id: 10, type: 'I', text: 'Peta Geologi 🗺️' },
+            // A
+            { id: 11, type: 'A', text: 'Kuas Digital 🖌️' },
+            { id: 12, type: 'A', text: 'Kamera 📷' },
+            { id: 13, type: 'A', text: 'Tablet Gambar 🎨' },
+            { id: 14, type: 'A', text: 'Poster Kreatif 🖼️' },
+            { id: 15, type: 'A', text: 'Palet Warna 🎨' },
+            // S
+            { id: 16, type: 'S', text: 'Ikon Obrolan 💬' },
+            { id: 17, type: 'S', text: 'Jabat Tangan 🤝' },
+            { id: 18, type: 'S', text: 'Headset Layanan 🎧' },
+            { id: 19, type: 'S', text: 'Buku Panduan 📚' },
+            { id: 20, h: 20, type: 'S', text: 'Kotak Bantuan ⛑️' },
+            // E
+            { id: 21, type: 'E', text: 'Grafik Naik 📈' },
+            { id: 22, type: 'E', text: 'Koin Digital 🪙' },
+            { id: 23, type: 'E', text: 'Tas Kerja 💼' },
+            { id: 24, type: 'E', text: 'Megafon 📢' },
+            { id: 25, type: 'E', text: 'Toko Virtual 🏪' },
+            // C
+            { id: 26, type: 'C', text: 'Folder Data 📁' },
+            { id: 27, type: 'C', text: 'Spreadsheet 📊' },
+            { id: 28, type: 'C', text: 'Arsip Digital 🗄️' },
+            { id: 29, type: 'C', text: 'Barcode 🏷️' },
+            { id: 30, type: 'C', text: 'Clipboard 📋' }
+        ];
+
+        function initAudio() {
+            if (audioCtx || elemenAudioBawaan) return;
+            if (FILE_MUSIK_EKSTERNAL !== "") {
+                elemenAudioBawaan = new Audio(FILE_MUSIK_EKSTERNAL);
+                elemenAudioBawaan.loop = true;
+                elemenAudioBawaan.volume = volumeLevel;
+                elemenAudioBawaan.play().catch(e => console.log("Menunggu interaksi."));
+                return;
+            }
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                bgmGainNode = audioCtx.createGain();
+                bgmGainNode.gain.setValueAtTime(volumeLevel, audioCtx.currentTime);
+                bgmGainNode.connect(audioCtx.destination);
+                mulaiMusikEnergetik();
+            } catch (e) {
+                console.log("AudioContext error: ", e);
+            }
+        }
+
+        /* AUDIO BELAJAR & BERMAIN NGE-BEAT DAN NYAMAN */
+        function mulaiMusikEnergetik() {
+            const tempo = 120; // Tempo sedang ceria
+            const stepDuration = 60 / tempo / 2;
+            const bassProgression = [130.81, 146.83, 164.81, 196.00];
+
+            function playSequencerStep() {
+                if (FILE_MUSIK_EKSTERNAL !== "" || !audioCtx || isMuted || audioCtx.state === 'suspended') return;
+                const now = audioCtx.currentTime;
+                const step = beatCounter % 16;
+                const chordIndex = Math.floor(beatCounter / 16) % bassProgression.length;
+                const currentBassFreq = bassProgression[chordIndex];
+
+                // Kick drum hangat
+                if (step % 4 === 0) {
+                    const kickOsc = audioCtx.createOscillator();
+                    const kickGain = audioCtx.createGain();
+                    kickOsc.type = 'sine';
+                    kickOsc.frequency.setValueAtTime(100, now);
+                    kickOsc.frequency.exponentialRampToValueAtTime(0.01, now + 0.12);
+                    kickGain.gain.setValueAtTime(0.40, now);
+                    kickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+                    kickOsc.connect(kickGain);
+                    kickGain.connect(bgmGainNode);
+                    kickOsc.start(now);
+                    kickOsc.stop(now + 0.13);
+                }
+
+                // Melodi Marimba Pluck
+                const melodyPattern = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 392.00, 329.63, 440.00, 392.00, 329.63, 293.66, 261.63, 0, 329.63, 0];
+                const activeNote = melodyPattern[step];
+                if (activeNote > 0 && step % 2 === 1) {
+                    const pluckOsc = audioCtx.createOscillator();
+                    const pluckGain = audioCtx.createGain();
+                    pluckOsc.type = 'sine';
+                    pluckOsc.frequency.setValueAtTime(activeNote, now);
+                    pluckGain.gain.setValueAtTime(0.18, now);
+                    pluckGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                    pluckOsc.connect(pluckGain);
+                    pluckGain.connect(bgmGainNode);
+                    pluckOsc.start(now);
+                    pluckOsc.stop(now + 0.16);
+                }
+
+                // Bassline Pluck Melodis
+                if (step % 2 === 0) {
+                    const bassOsc = audioCtx.createOscillator();
+                    const bassGain = audioCtx.createGain();
+                    bassOsc.type = 'triangle';
+                    bassOsc.frequency.setValueAtTime(currentBassFreq, now);
+                    bassGain.gain.setValueAtTime(0.24, now);
+                    bassGain.gain.exponentialRampToValueAtTime(0.001, now + stepDuration - 0.01);
+                    bassOsc.connect(bassGain);
+                    bassGain.connect(bgmGainNode);
+                    bassOsc.start(now);
+                    bassOsc.stop(now + stepDuration);
+                }
+
+                beatCounter++;
+            }
+            audioInterval = setInterval(playSequencerStep, stepDuration * 1000);
+        }
+
+        /* EFEK KLIK SFX DILUNAKKAN AGAR MUSIK SEBAGAI LATAR BELAKANG TERDENGAR LEBIH JELAS & KERAS */
+        function playClickSFX() {
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle'; 
+            osc.frequency.setValueAtTime(550, now);
+            osc.frequency.exponentialRampToValueAtTime(220, now + 0.1);
+            gain.gain.setValueAtTime(0.10, now); // 10% volume lembut
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.13);
+        }
+
+        function playCorrectSFX() {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc1.type = 'sine';
+            osc1.frequency.setValueAtTime(523.25, now);
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(659.25, now + 0.08);
+            gain.gain.setValueAtTime(0.12, now); // Lembut
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc1.start(now);
+            osc1.stop(now + 0.3);
+            osc2.start(now + 0.08);
+            osc2.stop(now + 0.3);
+        }
+
+        function playIncorrectSFX() {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(220, now);
+            osc.frequency.linearRampToValueAtTime(110, now + 0.25);
+            gain.gain.setValueAtTime(0.10, now); // Lembut
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.28);
+        }
+
+        function playFanfareSFX() {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const chords = [523.25, 659.25, 783.99, 1046.50];
+            chords.forEach((freq, idx) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + (idx * 0.1));
+                gain.gain.setValueAtTime(0.08, now + (idx * 0.1)); // Lembut
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now + (idx * 0.1));
+                osc.stop(now + 0.7);
+            });
+        }
+
+        function changeVolume(amount) {
+            playClickSFX();
+            volumeLevel = Math.max(0, Math.min(1, volumeLevel + amount));
+            if (elemenAudioBawaan) elemenAudioBawaan.volume = volumeLevel;
+            if (bgmGainNode) bgmGainNode.gain.setValueAtTime(volumeLevel, audioCtx.currentTime);
+            document.getElementById('volLabel').innerText = Math.round(volumeLevel * 100) + '%';
+        }
+
+        function toggleMute() {
+            playClickSFX();
+            isMuted = !isMuted;
+            const icon = document.getElementById('iconMute');
+            if (isMuted) {
+                if (elemenAudioBawaan) elemenAudioBawaan.volume = 0;
+                if (bgmGainNode) bgmGainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                icon.className = "fa-solid fa-volume-xmark text-red-500";
+                document.getElementById('volLabel').innerText = '0%';
+            } else {
+                if (elemenAudioBawaan) elemenAudioBawaan.volume = volumeLevel;
+                if (bgmGainNode) bgmGainNode.gain.setValueAtTime(volumeLevel, audioCtx.currentTime);
+                icon.className = "fa-solid fa-volume-high text-smkBlue";
+                document.getElementById('volLabel').innerText = Math.round(volumeLevel * 100) + '%';
+            }
+        }
+
+        window.addEventListener('load', function() {
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        });
+
+        window.addEventListener('click', function() {
+            initAudio();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }, { once: true });
+
+        function adaptResolution() {
+            const container = document.getElementById('app-container');
+            const targetW = 1280;
+            const targetH = 720;
+            const scaleX = window.innerWidth / targetW;
+            const scaleY = window.innerHeight / targetH;
+            const finalScale = Math.min(scaleX, scaleY);
+            container.style.transform = `translate(-50%, -50%) scale(${finalScale})`;
+        }
+
+        function startRealtimeClock() {
+            setInterval(() => {
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+                const dateStr = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+                document.getElementById('realtimeClock').innerText = `${timeStr} - ${dateStr}`;
+            }, 1000);
+        }
+
+        window.addEventListener('resize', adaptResolution);
+        
+        window.onload = function () {
+            adaptResolution();
+            startRealtimeClock();
+        }
+
+        // Tentukan 2 tipe kepribadian kerja RIASEC teratas berdasarkan kalkulasi gameplay
+        function getTopTwoRiasec() {
+            const scoreObj = window.smkUserData.riasecScore;
+            const sortedArray = Object.keys(scoreObj).map(key => ({
+                key: key,
+                val: scoreObj[key]
+            })).sort((a, b) => b.val - a.val);
+
+            const mappingIndo = {
+                'R': 'REALISTIS',
+                'I': 'INVESTIGATIF',
+                'A': 'ARTISTIK',
+                'S': 'SOSIAL',
+                'E': 'USAHA (ENTERPRISING)',
+                'C': 'KONVENSIONAL'
+            };
+
+            const first = mappingIndo[sortedArray[0].key] || 'REALISTIS';
+            const second = mappingIndo[sortedArray[1].key] || 'INVESTIGATIF';
+            return `${first} - ${second}`;
+        }
+
+        function checkDashboardButtons() {
+            const cptp = window.smkUserData.cptpCompleted;
+            const materi = window.smkUserData.materiCompleted;
+            const evaluasi = window.smkUserData.quizCompleted;
+            const game = window.smkUserData.gameCompleted;
+
+            // Tombol Cetak Sertifikat (Terbuka setelah CP & TP, Materi, Evaluasi, dan Game Selesai)
+            const certBtn = document.getElementById('btn-menu-sertifikat');
+            const certText = document.getElementById('text-menu-sertifikat');
+            const certLockIcon = document.getElementById('cert-lock-icon');
+            const certBtnIcon = document.getElementById('cert-btn-icon');
+            
+            if (certBtn && certText) {
+                const unlocked = cptp && materi && evaluasi && game;
+                if (unlocked) {
+                    certBtn.disabled = false;
+                    certBtn.classList.remove('opacity-60', 'cursor-not-allowed', 'pointer-events-none');
+                    certBtn.setAttribute('onclick', "bukaSertifikatHalaman()");
+                    certText.innerHTML = `<span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 font-extrabold rounded-lg text-[9px] animate-pulse">SERTIFIKAT RILIS ✨</span>`;
+                    if (certLockIcon) certLockIcon.className = "fa-solid fa-unlock-keyhole text-[10px] text-emerald-400 animate-bounce";
+                    if (certBtnIcon) certBtnIcon.className = "fa-solid fa-award text-xl text-emerald-400 animate-pulse";
+                } else {
+                    certBtn.disabled = true;
+                    certBtn.classList.add('opacity-60', 'cursor-not-allowed', 'pointer-events-none');
+                    certBtn.removeAttribute('onclick');
+                    if (certLockIcon) certLockIcon.className = "fa-solid fa-lock text-[10px] text-red-500";
+                    if (certBtnIcon) certBtnIcon.className = "fa-solid fa-award text-xl text-slate-500";
+                    
+                    let missing = [];
+                    if (!cptp) missing.push("CP");
+                    if (!materi) missing.push("MATERI");
+                    if (!evaluasi) missing.push("EVAL");
+                    if (!game) missing.push("GAME");
+                    
+                    certText.innerHTML = `
+                        <div class="space-y-1">
+                            <span class="px-2 py-0.5 bg-red-500/20 text-red-400 font-extrabold rounded text-[9px]">Terkunci</span>
+                            <p class="text-slate-500 font-bold uppercase mt-1 leading-none text-[7px] text-left">Harus: ${missing.join(', ')}</p>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        function bukaSertifikatHalaman() {
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+            
+            // Suntikkan data terbaru secara aman ke halaman sertifikat (mencegah error null reference)
+            const certU = document.getElementById('certUser');
+            if (certU) certU.innerText = window.smkUserData.nama;
+            
+            const certA = document.getElementById('certAsal');
+            if (certA) certA.innerText = "PROGRAM KEAHLIAN: " + window.smkUserData.sekolah;
+            
+            const certS = document.getElementById('certScoreDisplay');
+            if (certS) certS.innerText = `${window.smkUserData.evalScore || 0}/100`;
+            
+            const certD = document.getElementById('certDominantLabel');
+            if (certD) certD.innerText = getTopTwoRiasec();
+            
+            const certDate = document.getElementById('certDate');
+            if (certDate) certDate.innerText = formattedDate;
+            
+            const certSign = document.getElementById('certSignDate');
+            if (certSign) certSign.innerText = `Binuang, ${formattedDate}`;
+
+            // Update QR code data with verified student name dynamically
+            const certQR = document.getElementById('certQR');
+            if (certQR) {
+                const qrData = encodeURIComponent(`VERIFIED-HIDAYAT-RAHMAN-STUDENT:${window.smkUserData.nama}-SCORE:${window.smkUserData.evalScore || 0}`);
+                certQR.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrData}`;
+            }
+            
+            pindahHalaman('hal6-sertifikat');
+        }
+
+        function pindahHalaman(idHalamanTujuan) {
+            playClickSFX();
+            
+            if (idHalamanTujuan === 'hal7-cptp') window.smkUserData.cptpCompleted = true;
+            if (idHalamanTujuan === 'hal3-materi') window.smkUserData.materiCompleted = true;
+            
+            // Penghenti interval level 2 secara eksplisit dan aman agar tidak bocor ke menu utama
+            if (idHalamanTujuan !== 'hal5-permainan') {
+                clearInterval(gameTimerInterval);
+                clearInterval(l2Interval);
+                clearInterval(l2AnimationInterval);
+            }
+            
+            checkDashboardButtons();
+
+            semuaHalaman.forEach(id => {
+                const elemen = document.getElementById(id);
+                if (id === idHalamanTujuan) {
+                    elemen.classList.remove('hidden');
+                    void elemen.offsetWidth; 
+                    elemen.classList.add('opacity-100');
+                } else {
+                    elemen.classList.add('hidden');
+                    elemen.classList.remove('opacity-100');
+                }
+            });
+
+            if (idHalamanTujuan === 'hal4-evaluasi') {
+                renderQuizQuestion();
+                renderQuizNumberGrid();
+                updateQuizProgress();
+            }
+        }
+
+        function bukaModal(idModal) {
+            playClickSFX();
+            const modal = document.getElementById(idModal);
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.firstElementChild.classList.remove('scale-95');
+            modal.firstElementChild.classList.add('scale-100');
+        }
+
+        function tutupModal(idModal) {
+            playClickSFX();
+            const modal = document.getElementById(idModal);
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+        }
+
+        function bukaFormLogin() {
+            playClickSFX();
+            document.getElementById('hal1-welcome').classList.add('hidden');
+            const loginBox = document.getElementById('hal1-login');
+            loginBox.classList.remove('hidden');
+            void loginBox.offsetWidth;
+            loginBox.classList.add('opacity-100');
+        }
+
+        function kembaliDariLogin() {
+            playClickSFX();
+            document.getElementById('hal1-login').classList.add('hidden');
+            const welcome = document.getElementById('hal1-welcome');
+            welcome.classList.remove('hidden');
+            void welcome.offsetWidth;
+            welcome.classList.add('opacity-100');
+        }
+
+        // ================= KUESIONER EVALUASI BK (LOGIKA RENDER) =================
+        function renderQuizQuestion() {
+            const data = evaluasiSoal[quizCurrentIndex];
+            document.getElementById('quizQuestionNo').innerText = `Pertanyaan ${quizCurrentIndex + 1} dari 10`;
+            document.getElementById('quizQuestionText').innerText = data.pertanyaan;
+
+            const container = document.getElementById('quizOptionsContainer');
+            container.innerHTML = '';
+
+            data.pilihan.forEach((pil, idx) => {
+                const isSelected = (quizAnswers[quizCurrentIndex] === idx);
+                const card = document.createElement('button');
+                card.onclick = () => selectQuizOption(idx);
+                // MEMPERTEBAL BINGKAI OPSI SOAL (border-2) UNTUK KEJELASAN VISUAL TERKONTROL
+                card.className = `w-full text-left p-4 rounded-xl border-2 transition-all text-sm font-semibold flex items-center justify-between ${
+                    isSelected 
+                    ? 'bg-amber-100 border-amber-500 text-slate-900 shadow-sm' 
+                    : 'bg-[#fdfbf7] border-slate-300 text-slate-700 hover:border-slate-400'
+                }`;
+                card.innerHTML = `
+                    <span>${pil}</span>
+                    <div class="w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${isSelected ? 'border-amber-600 bg-amber-500' : 'border-slate-300'} ml-3">
+                        ${isSelected ? '<i class="fa-solid fa-check text-[8px] text-[#fdfbf7] font-black"></i>' : ''}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('btnPrevQuiz').disabled = (quizCurrentIndex === 0);
+            document.getElementById('btnNextQuiz').disabled = (quizCurrentIndex === 9);
+        }
+
+        function renderQuizNumberGrid() {
+            const grid = document.getElementById('quizNumberGrid');
+            grid.innerHTML = '';
+            evaluasiSoal.forEach((_, idx) => {
+                const isCurrent = (quizCurrentIndex === idx);
+                const isAnswered = (quizAnswers[idx] !== null);
+                // MEMPERTEBAL BINGKAI NAVIGASI NOMOR (border-2) AGAR SANGAT JELAS TERBEDAKAN
+                let bgClass = 'bg-white border-slate-300 text-slate-500 font-semibold';
+                if (isCurrent) {
+                    bgClass = 'bg-sky-400 border-2 border-sky-600 text-white font-bold scale-105';
+                } else if (isAnswered) {
+                    bgClass = 'bg-amber-400 border-2 border-amber-600 text-slate-900 font-bold';
+                }
+                const btn = document.createElement('button');
+                btn.onclick = () => navigateToQuestion(idx);
+                btn.className = `w-8 h-8 rounded-lg border-2 text-[11px] transition duration-200 flex items-center justify-center ${bgClass}`;
+                btn.innerText = idx + 1;
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateQuizProgress() {
+            const answeredCount = quizAnswers.filter(ans => ans !== null).length;
+            const progressPercent = (answeredCount / 10) * 100;
+            document.getElementById('quizProgressBar').style.width = `${progressPercent}%`;
+        }
+
+        function selectQuizOption(idx) {
+            playClickSFX();
+            quizAnswers[quizCurrentIndex] = idx;
+            renderQuizQuestion();
+            renderQuizNumberGrid();
+            updateQuizProgress();
+        }
+
+        function navigateToQuestion(idx) {
+            playClickSFX();
+            quizCurrentIndex = idx;
+            renderQuizQuestion();
+            renderQuizNumberGrid();
+        }
+
+        function prevQuestion() {
+            if (quizCurrentIndex > 0) navigateToQuestion(quizCurrentIndex - 1);
+        }
+
+        function nextQuestion() {
+            if (quizCurrentIndex < 9) navigateToQuestion(quizCurrentIndex + 1);
+        }
+
+        function submitQuiz() {
+            playClickSFX();
+            const unanswered = quizAnswers.includes(null);
+            if (unanswered) {
+                tampilkanAlertModal("Soal Belum Lengkap", "Kamu belum menyelesaikan seluruh soal ujian. Silakan isi semua pertanyaan terlebih dahulu!");
+                return;
+            }
+
+            let correctCount = 0;
+            evaluasiSoal.forEach((soal, idx) => {
+                if (quizAnswers[idx] === soal.kunci) correctCount++;
+            });
+
+            const score = correctCount * 10;
+            window.smkUserData.evalScore = score;
+            window.smkUserData.quizCompleted = true;
+
+            let feedbackTitle = "";
+            let feedbackMsg = "";
+            if (score >= 90) {
+                feedbackTitle = "Luar Biasa! Level Master RIASEC 🏆";
+                feedbackMsg = `Selamat, Sobat! Kamu berhasil menjawab dengan sempurna dan meraih nilai ${score}/100. Pemahamanmu tentang potensi diri sangat mengagumkan!`;
+            } else if (score >= 70) {
+                feedbackTitle = "Keren! Level Kompeten 🌟";
+                feedbackMsg = `Hebat! Kamu lulus evaluasi dengan skor ${score}/100. Ini membuktikan kamu memiliki penguasaan yang sangat baik.`;
+            } else {
+                feedbackTitle = "Kerja Bagus! Terus Belajar 🚀";
+                feedbackMsg = `Sobat, kamu meraih skor ${score}/100. Jangan ragu untuk mengulas kembali modul materi.`;
+            }
+
+            checkDashboardButtons();
+            tampilkanAlertModal(feedbackTitle, feedbackMsg);
+            pindahHalaman('hal2-menu');
+        }
+
+        function prosesLogin(event) {
+            event.preventDefault();
+            const inputNama = document.getElementById('username').value.trim();
+            const inputAsal = document.getElementById('asal_sekolah').value.trim();
+
+            if (!inputNama || !inputAsal) {
+                tampilkanAlertModal("Data Belum Lengkap", "Isi nama lengkap dan program keahlian Anda secara valid!");
+                return;
+            }
+
+            window.smkUserData.nama = inputNama.toUpperCase();
+            window.smkUserData.sekolah = inputAsal.toUpperCase();
+
+            document.getElementById('displayNama').innerText = inputNama;
+            document.getElementById('displayAsal').innerText = "Program Keahlian: " + inputAsal;
+
+            window.smkUserData.cptpCompleted = false;
+            window.smkUserData.materiCompleted = false;
+            window.smkUserData.gameCompleted = false;
+            window.smkUserData.quizCompleted = false;
+            quizAnswers = Array(10).fill(null);
+            quizCurrentIndex = 0;
+
+            pindahHalaman('hal2-menu');
+        }
+
+        function logOut() {
+            document.getElementById('username').value = '';
+            document.getElementById('asal_sekolah').value = '';
+            window.smkUserData.quizCompleted = false;
+            window.smkUserData.cptpCompleted = false;
+            window.smkUserData.materiCompleted = false;
+            window.smkUserData.gameCompleted = false;
+            window.smkUserData.evalScore = null;
+            window.smkUserData.riasecScore = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+            quizAnswers = Array(10).fill(null);
+            quizCurrentIndex = 0;
+            pindahHalaman('hal1-welcome');
+        }
+
+        // FUNGSI PRINT DINAMIS YANG HANDAL & AMAN (SANGAT COCOK UNTUK IFRAME/STORYLINE - MEMAKSA CONTROL-P PREVIEW)
+        function cetakSertifikat() {
+            playClickSFX();
+            // Tambahkan kelas mode cetak sertifikat ke elemen body
+            document.body.classList.add('print-cert-mode');
+            
+            // Fokuskan window sebelum mencetak (SANGAT KRUSIAL UNTUK SANDBOX IFRAME)
+            window.focus();
+            
+            // Berikan jeda kecil untuk render transisi media cetak peramban
+            setTimeout(() => {
+                window.print();
+            }, 250);
+        }
+
+        window.addEventListener('afterprint', () => {
+            document.body.classList.remove('print-cert-mode');
+        });
+
+        function tampilkanAlertModal(title, msg) {
+            playClickSFX();
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = msg;
+            
+            const modal = document.getElementById('customModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.firstElementChild.classList.remove('scale-95');
+            modal.firstElementChild.classList.add('scale-100');
+        }
+
+        function tutupAlertModal() {
+            playClickSFX();
+            const modal = document.getElementById('customModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+        }
+
+        function switchTabMateri(tabId) {
+            playClickSFX();
+            const contents = document.querySelectorAll('.tab-content-materi');
+            contents.forEach(content => content.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.tab-btn-materi');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-smkYellow', 'text-smkNavy-deep');
+                btn.classList.add('text-slate-500', 'hover:text-slate-800');
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('bg-smkYellow', 'text-smkNavy-deep');
+            activeBtn.classList.remove('text-slate-500', 'hover:text-slate-800');
+        }
+
+        // ================= LOGIKA UTAMA GAME "AKADEMI KARIER 2070" =================
+        function showGameGuide() {
+            playClickSFX();
+            document.getElementById('game-screen-menu').classList.add('hidden');
+            document.getElementById('game-screen-guide').classList.remove('hidden');
+        }
+
+        function hideGameGuide() {
+            playClickSFX();
+            document.getElementById('game-screen-guide').classList.add('hidden');
+            document.getElementById('game-screen-menu').classList.remove('hidden');
+        }
+
+        function startGame() {
+            playClickSFX();
+            initAudio();
+            document.getElementById('game-screen-menu').classList.add('hidden');
+            document.getElementById('game-screen-result').classList.add('hidden');
+            document.getElementById('game-screen-arena').classList.remove('hidden');
+
+            gameActiveLevel = 1;
+            gameSeconds = 0;
+            window.smkUserData.riasecScore = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+
+            updateGameHud();
+            
+            clearInterval(gameTimerInterval);
+            gameTimerInterval = setInterval(() => {
+                gameSeconds++;
+                const mins = String(Math.floor(gameSeconds / 60)).padStart(2, '0');
+                const secs = String(gameSeconds % 60).padStart(2, '0');
+                document.getElementById('gameHudTimer').innerText = `${mins}:${secs}`;
+            }, 1000);
+
+            loadLevel1();
+        }
+
+        function resetCurrentGameLevel() {
+            playClickSFX();
+            if (gameActiveLevel === 1) {
+                loadLevel1();
+            } else if (gameActiveLevel === 2) {
+                loadLevel2();
+            } else if (gameActiveLevel === 3) {
+                loadLevel3();
+            } else if (gameActiveLevel === 'boss') {
+                activateMenaraKarier();
+            }
+        }
+
+        function updateGameHud() {
+            let lvlText = "🔌 MISI 1: PENYELAMATAN PORTAL";
+            let correctText = "0 / 6";
+
+            if (gameActiveLevel === 1) {
+                lvlText = "🔌 MISI 1: PENYELAMATAN PORTAL";
+                correctText = `${l1PlacedCount} / 12 Objek Terhubung`;
+            } else if (gameActiveLevel === 2) {
+                lvlText = `👾 MISI 2: PEMBERSIHAN SISTEM (${l2ActiveWorld})`;
+                correctText = `Skor: ${l2CaughtCount} Tangkapan`;
+            } else if (gameActiveLevel === 3) {
+                lvlText = "🏙️ MISI 3: KOTA MASA DEPAN";
+                correctText = `${l3PlacedCount} / 6 Bangunan Terpasang`;
+            } else if (gameActiveLevel === 'boss') {
+                lvlText = "🚀 MISI UTAMA: AKTIFKAN MENARA KARIER";
+                correctText = "Menara Stabil";
+            }
+            
+            document.getElementById('gameHudLevel').innerHTML = lvlText;
+            document.getElementById('gameHudCorrect').innerText = correctText;
+
+            let progress = 0;
+            if (gameActiveLevel === 1) {
+                progress = (l1PlacedCount / 12) * 33;
+            } else if (gameActiveLevel === 2) {
+                progress = 33 + ((30 - l2TimerSeconds) / 30) * 33;
+            } else if (gameActiveLevel === 3) {
+                progress = 66 + (l3PlacedCount / 6) * 34;
+                if (progress > 99) progress = 99; // Menjaga transisi boss tetap presisi
+            } else if (gameActiveLevel === 'boss') {
+                progress = 100;
+            }
+            
+            document.getElementById('gameProgressPercent').innerText = `${Math.round(progress)}%`;
+            document.getElementById('gameProgressBar').style.width = `${progress}%`;
+        }
+
+        // --- LEVEL 1: PENYELAMATAN PORTAL ---
+        let l1ItemState = [];
+        function loadLevel1() {
+            l1PlacedCount = 0;
+            l1SelectedId = null;
+            const shuffled = [...l1Items].sort(() => 0.5 - Math.random());
+            l1ItemState = shuffled.slice(0, 12).map(item => ({ ...item, placed: false }));
+
+            renderLevel1();
+        }
+
+        function renderLevel1() {
+            updateGameHud();
+            const renderer = document.getElementById('gameLevelRenderer');
+            
+            renderer.innerHTML = `
+                <div class="grid grid-cols-12 gap-5 h-full items-stretch p-4 text-slate-800 bg-sky-50/50 rounded-3xl border border-sky-100 shadow-inner">
+                    <!-- Sisi Kiri: Panel Objek Melayang -->
+                    <div class="col-span-5 flex flex-col justify-between p-3 bg-white/80 rounded-2xl border border-slate-200 shadow-sm max-h-[275px]">
+                        <span class="text-xs text-sky-600 font-extrabold uppercase tracking-wider mb-2 px-2 flex items-center gap-1.5">
+                            <i class="fa-solid fa-parachute-box text-sm"></i> PILIHAN OBJEK ENERGI:
+                        </span>
+                        <div class="grid grid-cols-3 gap-2.5 overflow-y-auto pr-1 flex-grow p-1" id="l1-objects-tray"></div>
+                    </div>
+
+                    <!-- Sisi Ranan: Panel 6 Portal Energi -->
+                    <div class="col-span-7 flex flex-col justify-between p-3 bg-white/80 rounded-2xl border border-slate-200 shadow-sm max-h-[275px]">
+                        <span class="text-xs text-emerald-600 font-extrabold uppercase tracking-wider mb-2 px-2 flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-nodes text-sm"></i> PORTAL AKTIVITAS PROFESI:
+                        </span>
+                        <div class="grid grid-cols-3 gap-3 overflow-y-auto pr-1 flex-grow p-1" id="l1-portals-tray"></div>
+                    </div>
+                </div>
+            `;
+
+            const objectsTray = document.getElementById('l1-objects-tray');
+            l1ItemState.forEach(item => {
+                if (item.placed) return;
+                const isSelected = (l1SelectedId === item.id);
+                const btn = document.createElement('button');
+                btn.onclick = () => selectL1Item(item.id);
+                btn.className = `p-3.5 text-xs font-black border-2 rounded-xl transition duration-150 flex items-center justify-center text-center shadow-sm ${
+                    isSelected 
+                    ? 'border-orange-500 bg-orange-100 text-slate-900 scale-105 animate-pulse font-extrabold' 
+                    : 'border-slate-200 bg-white hover:border-sky-300 text-slate-700'
+                }`;
+                btn.innerText = item.text;
+                objectsTray.appendChild(btn);
+            });
+
+            const portalsTray = document.getElementById('l1-portals-tray');
+            const portalsData = [
+                { code: 'R', name: 'Realistis (R)', desc: 'Mesin & Praktik 🛠️', color: 'border-orange-300 hover:bg-orange-50' },
+                { code: 'I', name: 'Investigatif (I)', desc: 'Analisis & Riset 🔬', color: 'border-sky-300 hover:bg-sky-50' },
+                { code: 'A', name: 'Artistik (A)', desc: 'Kreativitas Seni 🎨', color: 'border-purple-300 hover:bg-purple-50' },
+                { code: 'S', name: 'Sosial (S)', desc: 'Pelayanan Kawan 🤝', color: 'border-emerald-300 hover:bg-emerald-50' },
+                { code: 'E', name: 'Usaha (E)', desc: 'Bisnis & Pimpinan 💼', color: 'border-rose-300 hover:bg-rose-50' },
+                { code: 'C', name: 'Konvensional (C)', desc: 'Data & Ketelitian 📊', color: 'border-slate-300 hover:bg-slate-50' }
+            ];
+
+            portalsData.forEach(p => {
+                const btn = document.createElement('button');
+                btn.onclick = () => connectToPortal(p.code);
+                btn.className = `p-3 rounded-xl border-2 transition duration-200 text-left flex flex-col justify-between min-h-[85px] shadow-sm bg-white ${p.color}`;
+                btn.innerHTML = `
+                    <div class="flex items-center justify-between w-full">
+                        <strong class="text-xs text-slate-800 uppercase">${p.name}</strong>
+                        <div class="w-3 h-3 rounded-full bg-slate-300" id="portal-led-${p.code}"></div>
+                    </div>
+                    <span class="text-[10px] text-slate-500 block mt-1">${p.desc}</span>
+                `;
+                portalsTray.appendChild(btn);
+            });
+
+            portalsData.forEach(p => {
+                const isAnyPlaced = l1ItemState.some(item => item.placed && item.type === p.code);
+                const led = document.getElementById(`portal-led-${p.code}`);
+                if (led && isAnyPlaced) {
+                    led.className = "w-3 h-3 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]";
+                }
+            });
+
+            const actBox = document.getElementById('gameActionBox');
+            actBox.innerHTML = '';
+            if (l1PlacedCount >= 12) {
+                const nextBtn = document.createElement('button');
+                nextBtn.onclick = () => promoteToLevel2();
+                nextBtn.className = "px-6 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black text-xs rounded-xl hover:scale-105 transition shadow-lg animate-bounce flex items-center gap-1.5";
+                nextBtn.innerHTML = `Misi 1 Selesai! Menuju Misi 2 <i class="fa-solid fa-circle-arrow-right"></i>`;
+                actBox.appendChild(nextBtn);
+            }
+        }
+
+        function selectL1Item(id) {
+            playClickSFX();
+            l1SelectedId = id;
+            renderLevel1();
+        }
+
+        function connectToPortal(portalCode) {
+            if (l1SelectedId === null) {
+                tampilkanAlertModal("Pilih Objek Energi", "Klik salah satu Objek Energi di panel kiri terlebih dahulu!");
+                return;
+            }
+            const activeItem = l1ItemState.find(item => item.id === l1SelectedId);
+            if (activeItem.type === portalCode) {
+                playCorrectSFX();
+                activeItem.placed = true;
+                l1PlacedCount++;
+                window.smkUserData.riasecScore[portalCode] += 10; 
+                l1SelectedId = null;
+                renderLevel1();
+            } else {
+                playIncorrectSFX();
+                l1SelectedId = null;
+                renderLevel1();
+                tampilkanAlertModal("Gagal Menghubungkan", "Objek energi tidak cocok dengan karakteristik portal. Cobalah analisis kembali!");
+            }
+        }
+
+        function promoteToLevel2() {
+            playFanfareSFX();
+            tampilkanAlertModal("Portal Identitas Aktif!", "Kamu telah menyalurkan energi ke semua portal profesional. Misi 2: Pembersihan Sistem dari objek liar kini dimulai!");
+            gameActiveLevel = 2;
+            loadLevel2();
+        }
+
+        // --- LEVEL 2: PEMBERSIHAN SISTEM ---
+        let l2CaughtCount = 0;
+        let l2ActiveWorld = "REALISTIS"; 
+        let l2TargetTypes = ["R"];
+        let l2TimerSeconds = 30;
+        let l2Interval = null;
+        let l2AnimationInterval = null;
+        let l2SpawnedItems = [];
+
+        function loadLevel2() {
+            clearInterval(l2Interval);
+            clearInterval(l2AnimationInterval);
+            l2CaughtCount = 0;
+            l2TimerSeconds = 30;
+            l2SpawnedItems = [];
+            const worlds = [
+                { name: "REALISTIS 🛠️", target: "R" },
+                { name: "ARTISTIK 🎨", target: "A" },
+                { name: "INVESTIGATIF 🔬", target: "I" }
+            ];
+            const chosen = worlds[Math.floor(Math.random() * worlds.length)];
+            l2ActiveWorld = chosen.name;
+            l2TargetTypes = [chosen.target];
+
+            renderLevel2Container();
+
+            l2Interval = setInterval(() => {
+                l2TimerSeconds--;
+                if (l2TimerSeconds <= 0) {
+                    clearInterval(l2Interval);
+                    clearInterval(l2AnimationInterval);
+                    promoteToLevel3();
+                } else {
+                    spawnL2Item();
+                    updateGameHud();
+                    const timerBadge = document.getElementById('l2-timer-badge');
+                    if (timerBadge) timerBadge.innerText = `Waktu Sisa: ${l2TimerSeconds} Detik`;
+                }
+            }, 1000);
+
+            l2AnimationInterval = setInterval(() => {
+                animateL2Items();
+            }, 30);
+        }
+
+        const l2PoolItems = [
+            { text: "Roda Gigi ⚙️", type: "R" },
+            { text: "Obeng Besar 🔧", type: "R" },
+            { text: "Helm Proyek 🪖", type: "R" },
+            { text: "Mini Excavator 🚜", type: "R" },
+            { text: "Tablet Gambar 🎨", type: "A" },
+            { text: "Kuas Digital 🖌️", type: "A" },
+            { text: "Kamera Pro 📷", type: "A" },
+            { text: "Palet Warna 🎨", type: "A" },
+            { text: "Mikroskop 🔬", type: "I" },
+            { text: "Kaca Pembesar 🔍", type: "I" },
+            { text: "Diagram Sains 📊", type: "I" },
+            { text: "Peta Geologi 🗺️", type: "I" }
+        ];
+
+        function spawnL2Item() {
+            const item = l2PoolItems[Math.floor(Math.random() * l2PoolItems.length)];
+            const leftOffset = Math.floor(Math.random() * 80) + 10; 
+            const itemObj = {
+                id: Date.now() + Math.random(),
+                text: item.text,
+                type: item.type,
+                left: leftOffset,
+                top: 10
+            };
+            l2SpawnedItems.push(itemObj);
+
+            if (l2SpawnedItems.length > 8) {
+                l2SpawnedItems.shift();
+            }
+        }
+
+        function renderLevel2Container() {
+            updateGameHud();
+            const renderer = document.getElementById('gameLevelRenderer');
+            
+            renderer.innerHTML = `
+                <div class="w-full h-full p-4 bg-slate-900 text-slate-100 rounded-3xl border border-slate-700 relative overflow-hidden flex flex-col justify-between max-h-[275px]">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2 z-10">
+                        <span class="text-sm font-black text-sky-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-shield-virus animate-pulse"></i> DETEKSI DUNIA AKTIF: <span class="text-smkYellow font-black">${l2ActiveWorld}</span>
+                        </span>
+                        <span id="l2-timer-badge" class="text-xs bg-red-500/20 text-red-400 font-extrabold px-3 py-1 rounded-lg">
+                            Waktu Sisa: ${l2TimerSeconds} Detik
+                        </span>
+                    </div>
+
+                    <div class="flex-grow relative w-full overflow-hidden bg-slate-950/80 rounded-2xl border border-slate-800/60 my-2 shadow-inner" id="l2-catch-arena"></div>
+
+                    <div class="text-xs text-slate-400 text-center uppercase font-black z-10">
+                        Misi: Klik / Tap Objek milik <span class="text-smkYellow font-bold">${l2ActiveWorld}</span>! Hindari Objek Lain!
+                    </div>
+                </div>
+            `;
+            document.getElementById('gameActionBox').innerHTML = '';
+        }
+
+        function animateL2Items() {
+            const catchArena = document.getElementById('l2-catch-arena');
+            if (!catchArena) return;
+
+            l2SpawnedItems.forEach(item => {
+                item.top += 0.8;
+                
+                let btn = document.getElementById(`l2-item-${item.id}`);
+                if (!btn) {
+                    btn = document.createElement('button');
+                    btn.id = `l2-item-${item.id}`;
+                    btn.onclick = () => clickL2Item(item.id);
+                    btn.className = "absolute p-3 bg-slate-800/95 border border-slate-700 rounded-xl text-xs font-bold hover:bg-slate-700 transition-shadow duration-100 shadow-md transform hover:scale-110";
+                    btn.style.left = `${item.left}%`;
+                    btn.innerText = item.text;
+                    catchArena.appendChild(btn);
+                }
+                
+                btn.style.top = `${item.top}%`;
+            });
+
+            const remainingItems = [];
+            l2SpawnedItems.forEach(item => {
+                if (item.top > 75) {
+                    const btn = document.getElementById(`l2-item-${item.id}`);
+                    if (btn) btn.remove();
+                } else {
+                    remainingItems.push(item);
+                }
+            });
+            l2SpawnedItems = remainingItems;
+        }
+
+        function clickL2Item(id) {
+            const idx = l2SpawnedItems.findIndex(x => x.id === id);
+            if (idx === -1) return;
+            const item = l2SpawnedItems[idx];
+            
+            l2SpawnedItems.splice(idx, 1);
+            const btn = document.getElementById(`l2-item-${id}`);
+            if (btn) btn.remove();
+
+            if (l2TargetTypes.includes(item.type)) {
+                playCorrectSFX();
+                l2CaughtCount++;
+                window.smkUserData.riasecScore[item.type] += 10; 
+            } else {
+                playIncorrectSFX();
+                l2CaughtCount = Math.max(0, l2CaughtCount - 1);
+                tampilkanAlertModal("Objek Liar Terdeteksi!", "Objek tersebut berasal dari portal dunia luar. Berhati-hatilah agar sistem tidak terganggu!");
+            }
+            updateGameHud();
+        }
+
+        function promoteToLevel3() {
+            clearInterval(l2Interval);
+            clearInterval(l2AnimationInterval);
+            playFanfareSFX();
+            tampilkanAlertModal("Sistem Berhasil Dibersihkan!", "Semua malware profesi telah disingkirkan. Sekarang, mari kita bangun Kota Karier Masa Depan di Misi 3!");
+            gameActiveLevel = 3;
+            loadLevel3();
+        }
+
+        // --- LEVEL 3: BANGUN KOTA KARIER MASA DEPAN ---
+        let l3PlacedCount = 0;
+        let l3SelectedId = null;
+        const l3Buildings = [
+            { id: 'b1', type: 'R', text: 'Bengkel Alat Berpikir 🏗' },
+            { id: 'b2', type: 'I', text: 'Laboratorium Analisis 🔬' },
+            { id: 'b3', type: 'A', text: 'Studio Desain Mandiri 🎨' },
+            { id: 'b4', type: 'S', text: 'Pusat Layanan BK 🤝' },
+            { id: 'b5', type: 'E', text: 'Kantor Bisnis Kreatif 💼' },
+            { id: 'b6', type: 'C', text: 'Pusat Administrasi Data 📊' }
+        ];
+        let l3PlacedState = Array(6).fill(false);
+
+        function loadLevel3() {
+            clearInterval(l2Interval);
+            l3PlacedCount = 0;
+            l3SelectedId = null;
+            l3PlacedState = Array(6).fill(false);
+            renderLevel3();
+        }
+
+        function renderLevel3() {
+            updateGameHud();
+            const renderer = document.getElementById('gameLevelRenderer');
+            
+            renderer.innerHTML = `
+                <div class="grid grid-cols-12 gap-5 h-full items-stretch p-4 text-slate-800 bg-sky-50/50 rounded-3xl border border-sky-100 shadow-inner">
+                    <!-- Sisi Kiri: Panel Konstruksi Bangunan -->
+                    <div class="col-span-5 flex flex-col justify-between p-3 bg-white/80 rounded-2xl border border-slate-200 shadow-sm max-h-[275px]">
+                        <span class="text-xs text-sky-600 font-extrabold uppercase tracking-wider mb-2 px-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-helmet-safety text-sm"></i> SILAKAN PILIH BANGUNAN:
+                        </span>
+                        <div class="grid grid-cols-1 gap-2 overflow-y-auto pr-1 flex-grow p-1" id="l3-buildings-container"></div>
+                    </div>
+
+                    <!-- Sisi Ranan: Peta Zonasi Kota -->
+                    <div class="col-span-7 flex flex-col justify-between p-3 bg-white/80 rounded-2xl border border-slate-200 shadow-sm max-h-[275px]">
+                        <span class="text-xs text-emerald-600 font-extrabold uppercase tracking-wider mb-2 px-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-map-location-dot text-sm"></i> ZONA WILAYAH KOTA KARIER:
+                        </span>
+                        <div class="grid grid-cols-3 gap-3 overflow-y-auto pr-1 flex-grow p-1" id="l3-zones-container"></div>
+                    </div>
+                </div>
+            `;
+
+            const buildingsContainer = document.getElementById('l3-buildings-container');
+            l3Buildings.forEach((b, idx) => {
+                if (l3PlacedState[idx]) return;
+                const isSelected = (l3SelectedId === b.id);
+                const btn = document.createElement('button');
+                btn.onclick = () => selectL3Building(b.id);
+                btn.className = `w-full text-left p-3 text-xs font-black border-2 rounded-xl transition flex justify-between items-center shadow-sm ${
+                    isSelected 
+                    ? 'border-orange-500 bg-orange-100 text-slate-900 scale-105 animate-pulse' 
+                    : 'border-slate-200 bg-white text-slate-700'
+                }`;
+                btn.innerHTML = `<span>${b.text}</span> <i class="fa-solid fa-crane-pit text-sky-400"></i>`;
+                buildingsContainer.appendChild(btn);
+            });
+
+            const zonesContainer = document.getElementById('l3-zones-container');
+            const zonesData = [
+                { code: 'R', name: 'Zona Realistic', desc: 'Praktikal Kerja Lapangan 🚜', style: 'border-orange-200 hover:bg-orange-50/40' },
+                { code: 'I', name: 'Zona Investigative', desc: 'Laboratorium Riset 🧪', style: 'border-sky-200 hover:bg-sky-50/40' },
+                { code: 'A', name: 'Zona Artistic', desc: 'Studio Kreatif Bebas 🎨', style: 'border-purple-200 hover:bg-purple-50/40' },
+                { code: 'S', name: 'Zona Social', desc: 'Pusat Layanan BK Kawan 🤝', style: 'border-emerald-200 hover:bg-emerald-50/40' },
+                { code: 'E', name: 'Zona Enterprising', desc: 'Kantor Bisnis Usaha 🏢', style: 'border-rose-200 hover:bg-rose-50/40' },
+                { code: 'C', name: 'Zona Conventional', desc: 'Administrasi Ketelitian Data 🗄', style: 'border-slate-200 hover:bg-slate-50/40' }
+            ];
+
+            zonesData.forEach(z => {
+                const bIdx = l3Buildings.findIndex(b => b.type === z.code);
+                const isPlaced = l3PlacedState[bIdx];
+                const btn = document.createElement('button');
+                btn.onclick = () => placeBuildingInZone(z.code);
+                btn.className = `p-3 rounded-xl border-2 transition duration-200 text-left flex flex-col justify-between min-h-[85px] shadow-sm bg-white ${z.style}`;
+                
+                if (isPlaced) {
+                    const bText = l3Buildings[bIdx].text;
+                    btn.className += " border-emerald-500 bg-emerald-50 shadow-[0_0_8px_#10b981]";
+                    btn.innerHTML = `
+                        <strong class="text-xs text-emerald-800 uppercase font-black">Aktif Stabil</strong>
+                        <span class="text-[10px] text-emerald-600 block mt-1 font-bold">${bText}</span>
+                    `;
+                } else {
+                    btn.innerHTML = `
+                        <strong class="text-xs text-slate-800 uppercase font-black">${z.name}</strong>
+                        <span class="text-[10px] text-slate-500 block mt-1">${z.desc}</span>
+                    `;
+                }
+                zonesContainer.appendChild(btn);
+            });
+
+            const actBox = document.getElementById('gameActionBox');
+            actBox.innerHTML = '';
+            if (l3PlacedCount >= 6) {
+                const bossBtn = document.createElement('button');
+                bossBtn.onclick = () => activateMenaraKarier();
+                bossBtn.className = "px-6 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-extrabold text-xs rounded-xl hover:scale-105 transition shadow-lg animate-bounce flex items-center gap-1.5";
+                bossBtn.innerHTML = `Aktifkan Menara Karier <i class="fa-solid fa-tower-broadcast animate-pulse"></i>`;
+                actBox.appendChild(bossBtn);
+            }
+        }
+
+        function selectL3Building(id) {
+            playClickSFX();
+            l3SelectedId = id;
+            renderLevel3();
+        }
+
+        function placeBuildingInZone(zoneCode) {
+            if (l3SelectedId === null) {
+                tampilkanAlertModal("Pilih Bangunan", "Klik salah satu Konstruksi Bangunan di panel kiri terlebih dahulu!");
+                return;
+            }
+            const bIdx = l3Buildings.findIndex(b => b.id === l3SelectedId);
+            const activeBuilding = l3Buildings[bIdx];
+            if (activeBuilding.type === zoneCode) {
+                playCorrectSFX();
+                l3PlacedState[bIdx] = true;
+                l3PlacedCount++;
+                window.smkUserData.riasecScore[zoneCode] += 15; 
+                l3SelectedId = null;
+                renderLevel3();
+            } else {
+                playIncorrectSFX();
+                l3SelectedId = null;
+                renderLevel3();
+                tampilkanAlertModal("Kesalahan Penempatan", "Zona wilayah tersebut tidak sesuai untuk jenis profesi bangunan ini. Sesuaikan tata ruang kota!");
+            }
+        }
+
+        // ================= MISI BOSS UTAMA: AKTIFKAN MENARA KARIER =================
+        function activateMenaraKarier() {
+            playFanfareSFX();
+            gameActiveLevel = 'boss';
+            updateGameHud();
+
+            const renderer = document.getElementById('gameLevelRenderer');
+            if (renderer) {
+                renderer.innerHTML = `
+                    <div class="flex flex-col items-center justify-between h-full p-4 bg-[#0e1322] text-slate-100 rounded-3xl border-2 border-amber-400 relative overflow-hidden max-h-[275px] energy-beam">
+                        <div class="z-10 text-center space-y-1">
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-black rounded-lg uppercase tracking-wider animate-pulse">
+                                KONSTELASI PORTAL STABIL
+                            </span>
+                            <h4 class="text-xl font-black text-white">Menara Karier Berhasil Diaktifkan!</h4>
+                        </div>
+
+                        <div class="grid grid-cols-6 gap-2 w-full z-10 my-2">
+                            <div class="p-2.5 bg-slate-900/90 border border-sky-500 rounded-xl text-[10px] text-center font-bold leading-tight">
+                                Teknik Alat Berat Traktor 🚜
+                            </div>
+                            <div class="p-2.5 bg-slate-900/90 border border-sky-500 rounded-xl text-[10px] text-center font-bold leading-tight">
+                                Teknik Otomotif Mobil 🏎️
+                            </div>
+                            <div class="p-2.5 bg-slate-900/90 border border-sky-500 rounded-xl text-[10px] text-center font-bold leading-tight">
+                                Desain Komunikasi DKV 🎨
+                            </div>
+                            <div class="p-2.5 bg-slate-900/90 border border-sky-500 rounded-xl text-[10px] text-center font-bold leading-tight">
+                                Pola Produksi Busana 👗
+                            </div>
+                            <div class="p-2.5 bg-slate-900/90 border border-sky-500 rounded-xl text-[10px] text-center font-bold leading-tight">
+                                Mekanisasi Tani Modern 🌾
+                            </div>
+                            <div class="p-2.5 bg-slate-900/90 border border-sky-500 rounded-xl text-[10px] text-center font-bold leading-tight">
+                                Geologi Batuan Tambang ⛏️
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-amber-300 font-semibold text-center z-10 leading-relaxed">
+                            “Setiap bidang membutuhkan kekuatan yang berbeda. Mengenali dirimu membantu menemukan arah karier yang tepat.”
+                        </p>
+                    </div>
+                `;
+            }
+
+            const actBox = document.getElementById('gameActionBox');
+            if (actBox) {
+                actBox.innerHTML = '';
+                const finishBtn = document.createElement('button');
+                finishBtn.onclick = () => finishGameEngine();
+                finishBtn.className = "px-6 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black text-xs rounded-xl hover:scale-105 transition shadow-lg animate-bounce flex items-center gap-1.5";
+                finishBtn.innerHTML = `Eksplorasi Profil Karier Saya <i class="fa-solid fa-circle-arrow-right"></i>`;
+                actBox.appendChild(finishBtn);
+            }
+        }
+
+        function finishGameEngine() {
+            playFanfareSFX();
+            clearInterval(gameTimerInterval);
+
+            window.smkUserData.gameCompleted = true;
+
+            const scoreObj = window.smkUserData.riasecScore;
+            const sortedArray = Object.keys(scoreObj).map(key => ({
+                key: key,
+                val: scoreObj[key]
+            })).sort((a, b) => b.val - a.val);
+
+            const top1 = sortedArray[0].key;
+            const top2 = sortedArray[1].key;
+            const combinedCode = `${top1}${top2}`;
+
+            let riasecText = "REALISTIS - INVESTIGATIF (RI)";
+            let potensiText = "Praktikal Mekanikal & Logika Analitis";
+            let jurusanText = "Teknik Alat Berat / Geologi Pertambangan";
+            let karirText = "Mekanik Alat Berat, Teknisi Pemetaan Tambang, Operator Alat Berat, Ahli Kelistrikan Mesin Profil, Supervisor Lapangan.";
+
+            // Kamus data variasi RIASEC lengkap (30 variasi berpasangan anti-error)
+            const combinedMap = {
+                // R
+                'RI': { title: 'REALISTIS - INVESTIGATIF (RI)', pot: 'Praktikal Mekanikal & Logika Analitis', jur: 'Teknik Alat Berat / Geologi Pertambangan', kar: 'Mekanik Alat Berat, Teknisi Pemetaan Tambang, Operator Alat Berat.' },
+                'RA': { title: 'REALISTIS - ARTISTIK (RA)', pot: 'Praktikal Mekanikal & Kreativitas Estetika', jur: 'Desain Produksi Busana', kar: 'Pembuat Pola Busana, Perancang Pakaian Kerja Industri, Desain Tekstil.' },
+                'RS': { title: 'REALISTIS - SOSIAL (RS)', pot: 'Praktikal Mekanikal & Kepedulian Komunitas', jur: 'Mekanisasi Pertanian / Teknik Kendaraan Ringan', kar: 'Instruktur Mekanik, Penyuluh Teknik Pertanian, Teknisi Lapangan.' },
+                'RE': { title: 'REALISTIS - ENTERPRISING (RE)', pot: 'Praktikal Mekanikal & Kepemimpinan Bisnis', jur: 'Teknik Kendaraan Ringan', kar: 'Pemilik Bengkel Otomotif, Kontraktor Alat Berat, Supervisor Pabrik.' },
+                'RC': { title: 'REALISTIS - CONVENTIONAL (RC)', pot: 'Praktikal Mekanikal & Organisasi Ketelitian', jur: 'Teknik Alat Berat', kar: 'Inspektur Keselamatan Kerja, Operator Kontrol Mesin, Pengelola Inventaris Suku Cadang.' },
+                // I
+                'IR': { title: 'INVESTIGATIF - REALISTIS (IR)', pot: 'Logika Analitis & Praktikal Mekanikal', jur: 'Geologi Pertambangan / Teknik Alat Berat', kar: 'Petugas Eksplorasi Tambang, Teknisi Hidrolik Berat, Analis Lapangan.' },
+                'IA': { title: 'INVESTIGATIF - ARTISTIK (IA)', pot: 'Logika Analitis & Kreativitas Desain', jur: 'Desain Komunikasi Visual', kar: 'Art Director, UI/UX Designer, Peneliti Animasi.' },
+                'IS': { title: 'INVESTIGATIF - SOSIAL (IS)', pot: 'Logika Analitis & Hubungan Masyarakat', jur: 'Pendidikan Teknik', kar: 'Dosen Teknik, Peneliti Sosial, Konsultan Karir.' },
+                'IE': { title: 'INVESTIGATIF - ENTERPRISING (IE)', pot: 'Logika Analitis & Manajemen Usaha', jur: 'Geologi Pertambangan', kar: 'Analis Bisnis Pertambangan, Konsultan Proyek Geologi.' },
+                'IC': { title: 'INVESTIGATIF - CONVENTIONAL (IC)', pot: 'Logika Analitis & Ketelitian Data', jur: 'Administrasi Teknik', kar: 'Database Administrator, Analis Data Laboratorium.' },
+                // A
+                'AR': { title: 'ARTISTIK - REALISTIS (AR)', pot: 'Kreativitas Estetika & Praktikal Mekanikal', jur: 'Desain Produksi Busana', kar: 'Desainer Busana Praktis, Pembuat Sampel Profil, Penjahit Kustom.' },
+                'AI': { title: 'ARTISTIK - INVESTIGATIF (AI)', pot: 'Kreativitas Estetika & Logika Analitis', jur: 'Desain Komunikasi Visual', kar: 'Art Director, UI/UX Designer, Peneliti Animasi.' },
+                'AS': { title: 'ARTISTIK - SOSIAL (AS)', pot: 'Kreativitas Estetika & Kepedulian Komunitas', jur: 'Desain Komunikasi Visual', kar: 'Pengajar Seni, Desainer Kampanye Sosial, Animator Media Komunitas.' },
+                'AE': { title: 'ARTISTIK - ENTERPRISING (AE)', pot: 'Kreativitas Estetika & Manajemen Usaha', jur: 'Desain Komunikasi Visual / Busana', kar: 'Creative Director, Wirausahawan DKV/Fashion.' },
+                'AC': { title: 'ARTISTIK - CONVENTIONAL (AC)', pot: 'Kreativitas Estetika & Ketelitian Administrasi', jur: 'Desain Produksi Busana', kar: 'Pengelola Arsip Pola, Editor Grafis, Koordinator Profil Pakaian.' },
+                // S
+                'SR': { title: 'SOSIAL - REALISTIS (SR)', pot: 'Kepedulian Komunitas & Praktikal Mekanikal', jur: 'Mekanisasi Pertanian / Teknik Kendaraan Ringan', kar: 'Instruktur Mekanik, Penyuluh Teknik Pertanian, Teknisi Lapangan.' },
+                'SI': { title: 'SOSIAL - INVESTIGATIF (SI)', pot: 'Kepedulian Komunitas & Logika Analitis', jur: 'Pendidikan Kejuruan', kar: 'Guru BK, Instruktur Pelatihan Kerja, Konsultan Karir.' },
+                'SA': { title: 'SOSIAL - ARTISTIK (SA)', pot: 'Kepedulian Komunitas & Kreativitas Estetika', jur: 'Desain Komunikasi Visual', kar: 'Pengajar Seni Visual, Koordinator Kreatif Sosial, Penyuluh Komunitas.' },
+                'SE': { title: 'SOSIAL - ENTERPRISING (SE)', pot: 'Kepedulian Komunitas & Kepemimpinan Bisnis', jur: 'Manajemen / Hubungan Masyarakat', kar: 'Koordinator CSR Perusahaan, Manajer Humas, Konsultan SDM.' },
+                'SC': { title: 'SOSIAL - CONVENTIONAL (SC)', pot: 'Kepedulian Komunitas & Organisasi Ketelitian', jur: 'Administrasi Layanan', kar: 'Koordinator Layanan Publik, Staff Administrasi Sekolah/Instansi.' },
+                // E
+                'ER': { title: 'ENTERPRISING - REALISTIS (ER)', pot: 'Kepemimpinan Bisnis & Praktikal Mekanikal', jur: 'Teknik Alat Berat / Kendaraan Ringan', kar: 'Kontraktor Alat Berat, Pemilik Bengkel Otomotif, Pengusaha Konstruksi.' },
+                'EI': { title: 'ENTERPRISING - INVESTIGATIF (EI)', pot: 'Kepemimpinan Bisnis & Logika Analitis', jur: 'Geologi Pertambangan / Teknik Industri', kar: 'Analis Bisnis Pertambangan, Konsultan Proyek Geologi.' },
+                'EA': { title: 'ENTERPRISING - ARTISTIK (EA)', pot: 'Kepemimpinan Bisnis & Kreativitas Estetika', jur: 'Desain Komunikasi Visual / Busana', kar: 'Creative Director, Fashion Entrepreneur, Pemilik Production House.' },
+                'ES': { title: 'ENTERPRISING - SOSIAL (ES)', pot: 'Kepemimpinan Bisnis & Kepedulian Komunitas', jur: 'Hubungan Masyarakat', kar: 'Manajer Humas, Koordinator CSR Perusahaan, Pengarah Komunitas.' },
+                'EC': { title: 'ENTERPRISING - CONVENTIONAL (EC)', pot: 'Kepemimpinan Bisnis & Organisasi Ketelitian', jur: 'Manajemen Keuangan / Administrasi', kar: 'Manajer Operasional, Penyelia Logistik Gudang.' },
+                // C
+                'CR': { title: 'CONVENTIONAL - REALISTIS (CR)', pot: 'Organisasi Ketelitian & Praktikal Mekanikal', jur: 'Teknik Alat Berat / Kendaraan Ringan', kar: 'Inspektur Keselamatan Kerja, Operator Kontrol Mesin, Staff Inventaris.' },
+                'CI': { title: 'CONVENTIONAL - INVESTIGATIF (CI)', pot: 'Organisasi Ketelitian & Logika Analitis', jur: 'Analis Data / Geologi', kar: 'Analis Laporan Laboratorium, Database Administrator, Arsitek Berkas.' },
+                'CA': { title: 'CONVENTIONAL - ARTISTIK (CA)', pot: 'Organisasi Ketelitian & Kreativitas Estetika', jur: 'Desain Produksi Busana / DKV', kar: 'Koordinator Profil Pakaian, Editor Grafis Presisi, Staff Pengelola Desain.' },
+                'CS': { title: 'CONVENTIONAL - SOSIAL (CS)', pot: 'Organisasi Ketelitian & Kepedulian Komunitas', jur: 'Administrasi BK / Sekolah', kar: 'Staff Administrasi Bimbingan Konseling, Koordinator Data Siswa.' },
+                'CE': { title: 'CONVENTIONAL - ENTERPRISING (CE)', pot: 'Organisasi Ketelitian & Kepemimpinan Bisnis', jur: 'Penyelia Keuangan / Logistik', kar: 'Penyelia Logistik Gudang, Manajer Operasional Administrasi.' }
+            };
+
+            const dataResult = combinedMap[combinedCode] || combinedMap['RI'];
+            
+            riasecText = dataResult.title;
+            potensiText = dataResult.pot;
+            jurusanText = dataResult.jur;
+            karirText = dataResult.kar;
+
+            // SINKRONISASI AMAN DAN UPDATE DATA PADA LAYAR PREVIEW PERMAINAN (MENCEGAH ERROR NULL REFERENSI)
+            const grR = document.getElementById('gameResultRiasec');
+            if (grR) grR.innerText = riasecText;
+            const grP = document.getElementById('gameResultPotensi');
+            if (grP) grP.innerText = potensiText;
+            const grJ = document.getElementById('gameResultJurusan');
+            if (grJ) grJ.innerText = jurusanText;
+            const grK = document.getElementById('gameResultKarir');
+            if (grK) grK.innerText = karirText;
+
+            // Perbarui data teks laporan profil dan sertifikat secara aman
+            const certDom = document.getElementById('certDominantLabel');
+            if (certDom) certDom.innerText = riasecText;
+
+            // Evaluasi tombol dashboard setelah game rampung
+            checkDashboardButtons();
+
+            document.getElementById('game-screen-arena').classList.add('hidden');
+            document.getElementById('game-screen-result').classList.remove('hidden');
+        }
+		
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then((reg) => console.log('Service Worker terdaftar!', reg))
+        .catch((err) => console.log('Pendaftaran gagal:', err));
+    });
+  }
+    </script>
+</body>
+</html>

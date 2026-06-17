@@ -1,0 +1,13 @@
+{
+  "name": "com.lkibk.riasec2070",
+  "displayName": "Akademi Karir RIASEC",
+  "version": "1.0.0",
+  "description": "Aplikasi BK RIASEC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "cordova-android": "^12.0.0"
+  }
+}
