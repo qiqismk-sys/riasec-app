@@ -1,0 +1,145 @@
+﻿{
+    "total_count":  1,
+    "jobs":  [
+                 {
+                     "id":  81819302781,
+                     "run_id":  27665779152,
+                     "workflow_name":  "Build Android APK (Cordova)",
+                     "head_branch":  "main",
+                     "run_url":  "https://api.github.com/repos/qiqismk-sys/riasec-app/actions/runs/27665779152",
+                     "run_attempt":  1,
+                     "node_id":  "CR_kwDOS82gHc8AAAATDM97fQ",
+                     "head_sha":  "7406129207cc0a2dca2d8db3a55c80b2ffdfed36",
+                     "url":  "https://api.github.com/repos/qiqismk-sys/riasec-app/actions/jobs/81819302781",
+                     "html_url":  "https://github.com/qiqismk-sys/riasec-app/actions/runs/27665779152/job/81819302781",
+                     "status":  "completed",
+                     "conclusion":  "failure",
+                     "created_at":  "2026-06-17T04:27:37Z",
+                     "started_at":  "2026-06-17T04:27:38Z",
+                     "completed_at":  "2026-06-17T04:28:29Z",
+                     "name":  "build",
+                     "steps":  [
+                                   {
+                                       "name":  "Set up job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  1,
+                                       "started_at":  "2026-06-17T04:27:39Z",
+                                       "completed_at":  "2026-06-17T04:27:40Z"
+                                   },
+                                   {
+                                       "name":  "Checkout Source Code",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  2,
+                                       "started_at":  "2026-06-17T04:27:40Z",
+                                       "completed_at":  "2026-06-17T04:27:44Z"
+                                   },
+                                   {
+                                       "name":  "Setup Node.js",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  3,
+                                       "started_at":  "2026-06-17T04:27:44Z",
+                                       "completed_at":  "2026-06-17T04:27:49Z"
+                                   },
+                                   {
+                                       "name":  "Setup Java JDK 17",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  4,
+                                       "started_at":  "2026-06-17T04:27:49Z",
+                                       "completed_at":  "2026-06-17T04:27:55Z"
+                                   },
+                                   {
+                                       "name":  "Install Cordova",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  5,
+                                       "started_at":  "2026-06-17T04:27:55Z",
+                                       "completed_at":  "2026-06-17T04:28:07Z"
+                                   },
+                                   {
+                                       "name":  "Install Project Dependencies",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  6,
+                                       "started_at":  "2026-06-17T04:28:07Z",
+                                       "completed_at":  "2026-06-17T04:28:09Z"
+                                   },
+                                   {
+                                       "name":  "Build APK (Debug)",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  7,
+                                       "started_at":  "2026-06-17T04:28:09Z",
+                                       "completed_at":  "2026-06-17T04:28:27Z"
+                                   },
+                                   {
+                                       "name":  "Locate Build Outputs",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  8,
+                                       "started_at":  "2026-06-17T04:28:27Z",
+                                       "completed_at":  "2026-06-17T04:28:27Z"
+                                   },
+                                   {
+                                       "name":  "Push Build Logs on Failure",
+                                       "status":  "completed",
+                                       "conclusion":  "skipped",
+                                       "number":  9,
+                                       "started_at":  "2026-06-17T04:28:27Z",
+                                       "completed_at":  "2026-06-17T04:28:27Z"
+                                   },
+                                   {
+                                       "name":  "Upload APK Artifact",
+                                       "status":  "completed",
+                                       "conclusion":  "failure",
+                                       "number":  10,
+                                       "started_at":  "2026-06-17T04:28:27Z",
+                                       "completed_at":  "2026-06-17T04:28:27Z"
+                                   },
+                                   {
+                                       "name":  "Post Setup Java JDK 17",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  18,
+                                       "started_at":  "2026-06-17T04:28:27Z",
+                                       "completed_at":  "2026-06-17T04:28:27Z"
+                                   },
+                                   {
+                                       "name":  "Post Setup Node.js",
+                                       "status":  "completed",
+                                       "conclusion":  "skipped",
+                                       "number":  19,
+                                       "started_at":  "2026-06-17T04:28:27Z",
+                                       "completed_at":  "2026-06-17T04:28:27Z"
+                                   },
+                                   {
+                                       "name":  "Post Checkout Source Code",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  20,
+                                       "started_at":  "2026-06-17T04:28:27Z",
+                                       "completed_at":  "2026-06-17T04:28:28Z"
+                                   },
+                                   {
+                                       "name":  "Complete job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  21,
+                                       "started_at":  "2026-06-17T04:28:28Z",
+                                       "completed_at":  "2026-06-17T04:28:28Z"
+                                   }
+                               ],
+                     "check_run_url":  "https://api.github.com/repos/qiqismk-sys/riasec-app/check-runs/81819302781",
+                     "labels":  [
+                                    "ubuntu-latest"
+                                ],
+                     "runner_id":  1000000003,
+                     "runner_name":  "GitHub Actions 1000000003",
+                     "runner_group_id":  0,
+                     "runner_group_name":  "GitHub Actions"
+                 }
+             ]
+}

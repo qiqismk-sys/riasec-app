@@ -3,9 +3,10 @@
     <name>Akademi Karir RIASEC</name>
     <description>Aplikasi Perencanaan Karir BK Model RIASEC.</description>
     <author email="developer@example.com" href="https://github.com">Hidayat Rahman</author>
-    <content src="index.html" />
+    <content src="story_html5.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <preference name="Orientation" value="landscape" />
+    <preference name="Fullscreen" value="true" />
 </widget>
