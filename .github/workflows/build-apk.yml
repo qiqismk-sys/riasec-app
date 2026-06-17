@@ -39,6 +39,13 @@ jobs:
           cordova platform add android --no-telemetry 2>&1 | tee cordova_platform_add.log
           cordova build android --no-telemetry 2>&1 | tee cordova_build.log
 
+      - name: Locate Build Outputs
+        run: |
+          echo "=== APK Files ==="
+          find platforms -name "*.apk" || true
+          echo "=== AAB Files ==="
+          find platforms -name "*.aab" || true
+
       - name: Push Build Logs on Failure
         if: failure()
         run: |
@@ -52,5 +59,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Aplikasi-RIASEC-APK
-          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          path: |
+            platforms/**/*.apk
+            platforms/**/*.aab
+          if-no-files-found: error
+
 
