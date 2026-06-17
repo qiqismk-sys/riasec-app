@@ -1,0 +1,41 @@
+Checking Java JDK and Android SDK versions
+ANDROID_HOME=/usr/local/lib/android/sdk (recommended setting)
+ANDROID_SDK_ROOT=/usr/local/lib/android/sdk (DEPRECATED)
+Using Android SDK: /usr/local/lib/android/sdk
+
+Welcome to Gradle 9.5.1!
+
+Here are the highlights of this release:
+ - Task provenance in reports and failure messages
+ - Type-safe accessors for precompiled Kotlin Settings plugins
+
+For more details see https://docs.gradle.org/9.5.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+[Incubating] Problems report is available at: file:///home/runner/work/riasec-app/riasec-app/platforms/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle' line: 131
+
+* What went wrong:
+Could not compile script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle'.
+> startup failed:
+  script '/home/runner/work/riasec-app/riasec-app/platforms/android/CordovaLib/cordova.gradle': 131: unable to resolve class XmlParser 
+   @ line 131, column 12.
+         return new XmlParser(false, false).parseText(xml)
+                ^
+  
+  1 error
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 27s
+Command failed with exit code 1: /usr/share/gradle-9.5.1/bin/gradle -p /home/runner/work/riasec-app/riasec-app/platforms/android wrapper -b /home/runner/work/riasec-app/riasec-app/platforms/android/wrapper.gradle

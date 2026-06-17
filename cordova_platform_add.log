@@ -1,0 +1,12 @@
+Using cordova-fetch for cordova-android@^12.0.0
+Adding android project...
+Creating Cordova project for the Android platform:
+	Path: platforms/android
+	Package: com.lkibk.riasec2070
+	Name: Akademi Karir RIASEC
+	Activity: MainActivity
+	Android Target SDK: android-33
+	Android Compile SDK: 33
+Subproject Path: CordovaLib
+Subproject Path: app
+Android project created with cordova-android@12.0.1
