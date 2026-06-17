@@ -4,7 +4,7 @@ ANDROID_SDK_ROOT=/usr/local/lib/android/sdk (DEPRECATED)
 Using Android SDK: /usr/local/lib/android/sdk
 Starting a Gradle Daemon (subsequent builds will be faster)
 > Task :wrapper
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1781670863680.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1781671596624.json
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
 
@@ -34,15 +34,15 @@ Installing Android SDK Platform 33 in /usr/local/lib/android/sdk/platforms/andro
 > Task :app:compileDebugRenderscript NO-SOURCE
 > Task :app:generateDebugBuildConfig
 > Task :app:javaPreCompileDebug
-> Task :app:generateDebugResValues
 > Task :CordovaLib:writeDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
 
 > Task :CordovaLib:compileDebugRenderscript
 The RenderScript APIs are deprecated. They will be removed in Android Gradle plugin 9.0. See the following link for a guide to migrate from RenderScript: https://developer.android.com/guide/topics/renderscript/migrate
 
 > Task :CordovaLib:generateDebugResValues
 > Task :CordovaLib:generateDebugResources
-> Task :app:checkDebugAarMetadata
 > Task :CordovaLib:packageDebugResources
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
@@ -50,21 +50,21 @@ The RenderScript APIs are deprecated. They will be removed in Android Gradle plu
 > Task :app:extractDeepLinksDebug
 > Task :CordovaLib:extractDeepLinksDebug
 > Task :CordovaLib:compileDebugLibraryResources
-> Task :CordovaLib:processDebugManifest
-> Task :app:mergeDebugResources
-> Task :CordovaLib:parseDebugLocalResources
-> Task :app:processDebugMainManifest
-> Task :app:processDebugManifest
-> Task :app:processDebugManifestForPackage
 > Task :CordovaLib:generateDebugBuildConfig
 > Task :CordovaLib:javaPreCompileDebug
 > Task :app:mergeDebugShaders
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
+> Task :CordovaLib:processDebugManifest
 > Task :CordovaLib:mergeDebugShaders
+> Task :CordovaLib:parseDebugLocalResources
+> Task :app:mergeDebugResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
 > Task :CordovaLib:compileDebugShaders NO-SOURCE
 > Task :CordovaLib:generateDebugAssets UP-TO-DATE
 > Task :CordovaLib:packageDebugAssets
+> Task :app:processDebugManifestForPackage
 > Task :CordovaLib:generateDebugRFile
 > Task :app:mergeDebugAssets
 > Task :app:processDebugResources
@@ -78,29 +78,29 @@ Note: Recompile with -Xlint:deprecation for details.
 > Task :CordovaLib:bundleLibCompileToJarDebug
 > Task :CordovaLib:bundleLibResDebug
 > Task :app:compressDebugAssets
+> Task :app:checkDebugDuplicateClasses
 > Task :app:compileDebugJavaWithJavac
 > Task :app:desugarDebugFileDependencies
-> Task :app:checkDebugDuplicateClasses
-> Task :app:mergeDebugJavaResource
 > Task :CordovaLib:bundleLibRuntimeToDirDebug
+> Task :app:mergeDebugJavaResource
 > Task :app:dexBuilderDebug
 > Task :app:mergeDebugJniLibFolders
 > Task :CordovaLib:mergeDebugJniLibFolders
 > Task :CordovaLib:mergeDebugNativeLibs NO-SOURCE
 > Task :app:mergeProjectDexDebug
 > Task :CordovaLib:copyDebugJniLibsProjectOnly
-> Task :app:mergeLibDexDebug
 > Task :app:validateSigningDebug
 > Task :app:mergeDebugNativeLibs NO-SOURCE
 > Task :app:stripDebugDebugSymbols NO-SOURCE
 > Task :app:writeDebugAppMetadata
 > Task :app:writeDebugSigningConfigVersions
+> Task :app:mergeLibDexDebug
 > Task :app:mergeExtDexDebug
 > Task :app:packageDebug
 > Task :app:createDebugApkListingFileRedirect
 > Task :app:assembleDebug
 > Task :app:cdvBuildDebug
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1781670865854.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_4-1781671598961.json
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
 
@@ -108,7 +108,7 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 See https://docs.gradle.org/7.6/userguide/command_line_interface.html#sec:command_line_warnings
 
-BUILD SUCCESSFUL in 53s
+BUILD SUCCESSFUL in 20s
 50 actionable tasks: 50 executed
 Built the following apk(s): 
 	/home/runner/work/riasec-app/riasec-app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
